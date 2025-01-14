@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+
+/* ---- RÉINITIALISATION DE BASE ---- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Assure que le body et le html couvrent toute la hauteur */
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Organise les enfants verticalement */
+}
+
+/* ---- STYLE GLOBAL ---- */
+body {
+    font-family: 'Oswald', sans-serif;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Pseudo-éléments pour les images décoratives */
+body::before,
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 800px; /* Taille fixe des images */
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+body::before {
+    left: 0;
+    background-image: url('../images/bg-left.png');
+    top: -100px;
+}
+
+body::after {
+    right: 0;
+    background-image: url('../images/bg-right.png');
+    top: -100px;
+    background-position: top right;
+}
+
+/* ---- CONTENU PRINCIPAL ---- */
+.menu {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #555555;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: white;
+}
+
+.menu h1 {
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    background-color: green;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button-container button:hover {
+    background-color: darkgreen;
+}
+
+.social-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px; /* Ajoute plus d'espace en haut */
+}
+
+.social-box {
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 50px; /* Augmente l'espace entre les rectangles */
+    color: white;
+    text-decoration: none; /* Enlève les soulignements */
+    transition: transform 0.3s; /* Ajoute une transition pour l'effet de déplacement */
+}
+
+.social-box img {
+    width: 1200px;
+    height: 500px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.social-box.left {
+    align-self: flex-start;
+}
+
+.social-box.right {
+    align-self: flex-end;
+}
+
+.social-box:hover {
+    transform: translateX(10px); /* Déplace le rectangle vers la droite au survol */
+}
+
+.social-box:nth-child(2):hover {
+    transform: translateX(-10px); /* Fait tourner le deuxième rectangle vers la gauche au survol */
+}
+
+/* ---- CONTAINER POUR LE ROSTER ---- */
+.roster-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1; /* Prend l'espace restant pour le contenu principal */
+    padding: 20px;
+    gap: 10px;
+}
+
+.character {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.character p img {
+    width: 30px;
+    height: 30px;
+    margin: 0 3px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.character p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Barre de recherche */
+#search-bar {
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    width: 80%;
+    font-size: 16px;
+}
+
+/* ---- FOOTER STICKY ---- */
+.footer {
+    color: white;
+    text-align: center;
+    background-color: #333;
+    padding: 10px 0;
+    margin-top: auto;
+}
+
+.footer a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
