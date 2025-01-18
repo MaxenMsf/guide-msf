@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchBar = document.getElementById('search-bar');
     let characters = [];
 
-    fetch('data/roster.csv')
+    fetch('data/roster_wade.csv')
         .then(response => response.text())
         .then(data => {
             characters = parseCSV(data);
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         }
-        return result.filter(char => char.name === 'Maxen');
+        return result.filter(char => char.name === 'Wade');
     }
 
     function displayCharacters(characters) {
