@@ -193,7 +193,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const selectedArray = JSON.parse(getCookie('selectedCharacters') || '[]');
         loadingFromCookie = true;
     
-        // Récupère tous les selects disponibles
         const selects = document.querySelectorAll('.character-select');
     
         selectedArray.forEach((characterId, index) => {
