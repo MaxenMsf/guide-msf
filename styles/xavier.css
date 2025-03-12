@@ -67,3 +67,48 @@ td img {
     font-size: 16px;
     font-weight: bold;
 }
+
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+    }
+
+    td, th {
+        width: 50%; /* Adjust width to fit 3 columns */
+        display: inline-block;
+        text-align: center;
+    }
+
+    td img, .origin-logo, .origin-logo2 {
+        display: inline-block;
+        margin: 0 5px;
+    }
+
+    .character-select {
+        width: 100%;
+    }
+
+    #origin-counters {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .origin-counter {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    td, th {
+        padding: 4px;
+    }
+
+    .origin-counter img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .origin-counter div {
+        font-size: 14px;
+    }
+}
