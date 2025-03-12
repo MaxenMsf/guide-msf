@@ -1,0 +1,69 @@
+table {
+    width: 75%; /* Ajuste la largeur des tableaux pour qu'ils soient uniformes */
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    width: 20%; /* Définit une largeur fixe pour les cellules */
+}
+
+caption {
+    font-weight: bold;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.character-select {
+    display: block;
+    margin-bottom: 8px;
+}
+
+td img {
+    display: block;
+    margin: 0 auto;
+}
+
+.origin-logo {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    width: 20px;
+    height: 20px;
+}
+
+.origin-logo2 {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+}
+
+#origin-counters {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    color: white;
+}
+
+.origin-counter {
+    text-align: center;
+    margin: 0 10px;
+}
+
+.origin-counter img {
+    width: 40px;
+    height: 40px;
+}
+
+.origin-counter div {
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
