@@ -1,5 +1,5 @@
 table {
-    width: 75%; /* Ajuste la largeur des tableaux pour qu'ils soient uniformes */
+    width: 75%;
     margin: 0 auto;
     border-collapse: collapse;
 }
@@ -10,7 +10,7 @@ td, th {
     text-align: center;
     vertical-align: middle;
     position: relative;
-    width: 20%; /* Définit une largeur fixe pour les cellules */
+    width: 20%;
 }
 
 caption {
@@ -22,6 +22,16 @@ caption {
 .character-select {
     display: block;
     margin-bottom: 8px;
+}
+
+.character-select option {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 60px;
+    padding-left: 70px;
+    display: flex;
+    align-items: center;
 }
 
 td img {
@@ -68,13 +78,54 @@ td img {
     font-weight: bold;
 }
 
+.uniques-container {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+.uniques-container img {
+    margin-top: 15px;
+    width: 50px;
+    height: 50px;
+    margin: 0 2px;
+}
+
+#uniques-counters {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    color: white;
+    flex-wrap: wrap;
+}
+
+.unique-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 5px;
+}
+
+.unique-item img {
+    width: 60px;
+    height: 60px;
+}
+
+.unique-item div {
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    width: 60px;
+}
+
 @media (max-width: 768px) {
     table {
         width: 100%;
     }
 
     td, th {
-        width: 50%; /* Adjust width to fit 3 columns */
+        width: 50%;
         display: inline-block;
         text-align: center;
     }

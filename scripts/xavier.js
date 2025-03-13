@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         Expertise: 1,
         Techno: 0
     };
+    const uniqueCounts = {};
     let loadingFromCookie = false;
 
     loadHeaderFooter();
@@ -53,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
             });
-
+    
             select.addEventListener('change', function() {
                 const selectedCharacterId = this.value;
                 if (!loadingFromCookie && selectedCharacters.has(selectedCharacterId)) {
@@ -61,18 +62,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     this.value = '';
                     return;
                 }
-
+    
                 const img = this.nextElementSibling;
                 img.src = `portrait/Portrait_${selectedCharacterId}.png`;
                 img.alt = selectedCharacterId;
-
+    
                 const logo = img.nextElementSibling;
                 const logo2 = logo.nextElementSibling;
+                const uniquesContainer = logo2.nextElementSibling;
                 const character = characters.find(c => c['Character Id'] === selectedCharacterId);
                 if (character) {
                     const origins = [character['Origine'], character['Origine2']].filter(Boolean);
                     const originValues = origins.map(origin => origin.trim());
-
+    
                     // Mise à jour des compteurs d'origine
                     if (this.dataset.previousValue) {
                         const previousCharacter = characters.find(c => c['Character Id'] === this.dataset.previousValue);
@@ -83,13 +85,13 @@ document.addEventListener('DOMContentLoaded', function() {
                             });
                         }
                     }
-
+    
                     originValues.forEach(origin => {
                         originCounts[origin] += originValues.length > 1 ? 0.5 : 1;
                     });
-
+    
                     updateOriginCounters();
-
+    
                     if (originValues[0]) {
                         logo.src = `images/${originValues[0].toLowerCase()}.png`;
                         logo.alt = originValues[0];
@@ -99,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         logo.alt = '';
                         logo.style.display = 'none';
                     }
-
+    
                     if (originValues[1]) {
                         logo2.src = `images/${originValues[1].toLowerCase()}.png`;
                         logo2.alt = originValues[1];
@@ -109,34 +111,54 @@ document.addEventListener('DOMContentLoaded', function() {
                         logo2.alt = '';
                         logo2.style.display = 'none';
                     }
+    
+                    // Mise à jour des uniques
+                    const uniques = character['Unique'].split(',').map(unique => unique.trim());
+                    uniquesContainer.innerHTML = '';
+                    uniques.forEach(unique => {
+                        const uniqueImg = document.createElement('img');
+                        uniqueImg.src = `uniques/ICON_GEAR_${unique}.png`;
+                        uniqueImg.alt = unique;
+                        uniquesContainer.appendChild(uniqueImg);
+    
+                        if (!uniqueCounts[unique]) {
+                            uniqueCounts[unique] = 0;
+                        }
+                        uniqueCounts[unique]++;
+                    });
+    
+                    updateUniqueCounters();
                 }
-
+    
                 if (this.dataset.previousValue) {
                     selectedCharacters.delete(this.dataset.previousValue);
                 }
                 selectedCharacters.add(selectedCharacterId);
                 this.dataset.previousValue = selectedCharacterId;
-
+    
                 updateSelectMenus();
                 saveSelectedCharactersToCookie();
             });
-
+    
             select.value = 'MysteryMan';
             const img = select.nextElementSibling;
             img.src = 'portrait/Portrait_MysteryMan.png';
             img.alt = 'MysteryMan';
-
+    
             const logo = img.nextElementSibling;
             logo.src = '';
             logo.alt = '';
             logo.style.display = 'none';
-
+    
             const logo2 = logo.nextElementSibling;
             logo2.src = '';
             logo2.alt = '';
             logo2.style.display = 'none';
+    
+            const uniquesContainer = logo2.nextElementSibling;
+            uniquesContainer.innerHTML = '';
         });
-
+    
         updateSelectMenus();
     }
 
@@ -159,6 +181,36 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('mystique-count').textContent = originCounts.Mystique;
         document.getElementById('expertise-count').textContent = originCounts.Expertise;
         document.getElementById('techno-count').textContent = originCounts.Techno;
+    }
+
+    function updateUniqueCounters() {
+        const uniquesCounters = document.getElementById('uniques-counters');
+        uniquesCounters.innerHTML = '';
+    
+        // Affiche toujours un chrome car Lilandra est obligatoire
+        const chromeItem = document.createElement('div');
+        chromeItem.className = 'unique-item';
+        const chromeImg = document.createElement('img');
+        chromeImg.src = 'uniques/ICON_GEAR_Chrome.png';
+        chromeImg.alt = 'chrome';
+        chromeItem.appendChild(chromeImg);
+        const chromeCount = document.createElement('div');
+        chromeCount.textContent = '1';
+        chromeItem.appendChild(chromeCount);
+        uniquesCounters.appendChild(chromeItem);
+    
+        for (const unique in uniqueCounts) {
+            const uniqueItem = document.createElement('div');
+            uniqueItem.className = 'unique-item';
+            const uniqueImg = document.createElement('img');
+            uniqueImg.src = `uniques/ICON_GEAR_${unique}.png`;
+            uniqueImg.alt = unique;
+            uniqueItem.appendChild(uniqueImg);
+            const uniqueCount = document.createElement('div');
+            uniqueCount.textContent = uniqueCounts[unique];
+            uniqueItem.appendChild(uniqueCount);
+            uniquesCounters.appendChild(uniqueItem);
+        }
     }
 
     function setCookie(name, value, days) {
@@ -192,12 +244,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function loadSelectedCharactersFromCookie() {
         const selectedArray = JSON.parse(getCookie('selectedCharacters') || '[]');
         loadingFromCookie = true;
-    
+
         const selects = document.querySelectorAll('.character-select');
-    
+
         selectedArray.forEach((characterId, index) => {
             if (index < selects.length) {
-                const select = selects[index];  
+                const select = selects[index];
                 if (select.querySelector(`option[value="${characterId}"]`)) {
                     select.value = characterId;
                     selectedCharacters.add(characterId);
