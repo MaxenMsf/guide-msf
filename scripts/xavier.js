@@ -83,6 +83,15 @@ document.addEventListener('DOMContentLoaded', function() {
                             previousOrigins.forEach(origin => {
                                 originCounts[origin] -= previousOrigins.length > 1 ? 0.5 : 1;
                             });
+    
+                            // Mise à jour des compteurs d'unique
+                            const previousUniques = previousCharacter['Unique'].split(',').map(unique => unique.trim());
+                            previousUniques.forEach(unique => {
+                                uniqueCounts[unique]--;
+                                if (uniqueCounts[unique] === 0) {
+                                    delete uniqueCounts[unique];
+                                }
+                            });
                         }
                     }
     
