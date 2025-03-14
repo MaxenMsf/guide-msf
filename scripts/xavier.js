@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
         Biotechnique: 0,
         Mutant: 0,
         Mystique: 0,
-        Expertise: 1,
+        Expertise: 0,
         Techno: 0
     };
     const uniqueCounts = {};
