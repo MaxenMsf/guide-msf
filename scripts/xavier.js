@@ -38,23 +38,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function populateSelectMenus() {
-        document.querySelectorAll('.character-select').forEach(select => {
+        document.querySelectorAll('.character-select').forEach((select, index, selects) => {
             const tableCaption = select.closest('table').caption.textContent;
             characters.forEach(character => {
-                if (character['Character Id'] !== 'MysteryMan' && character['Character Id'] !== 'Lilandra') {
+                if (character['Character Id'] !== 'MysteryMan') {
                     if ((tableCaption === 'Ville' && character['Localisation'] === 'Ville') ||
                         (tableCaption === 'Mondial Vilain' && character['Localisation'] === 'Mondial' && character['Allignement'] === 'Vilain') ||
                         (tableCaption === 'Mondial Hero' && character['Localisation'] === 'Mondial' && character['Allignement'] === 'Hero') ||
                         (tableCaption === 'Cosmique Vilain' && character['Localisation'] === 'Cosmique' && character['Allignement'] === 'Vilain') ||
-                        (tableCaption === 'Cosmique Hero + Lilandra' && character['Localisation'] === 'Cosmique' && character['Allignement'] === 'Hero')) {
+                        (tableCaption === 'Cosmique Hero + Lilandra' && character['Localisation'] === 'Cosmique' && character['Allignement'] === 'Hero') ||
+                        (tableCaption === 'Cosmique Hero + Lilandra' && character['Character Id'] === 'Lilandra')) {
                         const option = document.createElement('option');
                         option.value = character['Character Id'];
-                        option.textContent = character['Character Id'];
+                        option.textContent = character['Alias'] || character['Character Id']; // Utiliser l'alias ou l'ID du personnage
                         select.appendChild(option);
                     }
                 }
             });
-    
+
             select.addEventListener('change', function() {
                 const selectedCharacterId = this.value;
                 if (!loadingFromCookie && selectedCharacters.has(selectedCharacterId)) {
@@ -62,11 +63,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     this.value = '';
                     return;
                 }
-    
+
                 const img = this.nextElementSibling;
                 img.src = `portrait/Portrait_${selectedCharacterId}.png`;
                 img.alt = selectedCharacterId;
-    
+
                 const logo = img.nextElementSibling;
                 const logo2 = logo.nextElementSibling;
                 const uniquesContainer = logo2.nextElementSibling;
@@ -74,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (character) {
                     const origins = [character['Origine'], character['Origine2']].filter(Boolean);
                     const originValues = origins.map(origin => origin.trim());
-    
+
                     // Mise à jour des compteurs d'origine
                     if (this.dataset.previousValue) {
                         const previousCharacter = characters.find(c => c['Character Id'] === this.dataset.previousValue);
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             previousOrigins.forEach(origin => {
                                 originCounts[origin] -= previousOrigins.length > 1 ? 0.5 : 1;
                             });
-    
+
                             // Mise à jour des compteurs d'unique
                             const previousUniques = previousCharacter['Unique'].split(',').map(unique => unique.trim());
                             previousUniques.forEach(unique => {
@@ -94,13 +95,13 @@ document.addEventListener('DOMContentLoaded', function() {
                             });
                         }
                     }
-    
+
                     originValues.forEach(origin => {
                         originCounts[origin] += originValues.length > 1 ? 0.5 : 1;
                     });
-    
+
                     updateOriginCounters();
-    
+
                     if (originValues[0]) {
                         logo.src = `images/${originValues[0].toLowerCase()}.png`;
                         logo.alt = originValues[0];
@@ -110,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         logo.alt = '';
                         logo.style.display = 'none';
                     }
-    
+
                     if (originValues[1]) {
                         logo2.src = `images/${originValues[1].toLowerCase()}.png`;
                         logo2.alt = originValues[1];
@@ -120,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         logo2.alt = '';
                         logo2.style.display = 'none';
                     }
-    
+
                     // Mise à jour des uniques
                     const uniques = character['Unique'].split(',').map(unique => unique.trim());
                     uniquesContainer.innerHTML = '';
@@ -129,45 +130,52 @@ document.addEventListener('DOMContentLoaded', function() {
                         uniqueImg.src = `uniques/ICON_GEAR_${unique}.png`;
                         uniqueImg.alt = unique;
                         uniquesContainer.appendChild(uniqueImg);
-    
+
                         if (!uniqueCounts[unique]) {
                             uniqueCounts[unique] = 0;
                         }
                         uniqueCounts[unique]++;
                     });
-    
+
                     updateUniqueCounters();
                 }
-    
+
                 if (this.dataset.previousValue) {
                     selectedCharacters.delete(this.dataset.previousValue);
                 }
                 selectedCharacters.add(selectedCharacterId);
                 this.dataset.previousValue = selectedCharacterId;
-    
+
                 updateSelectMenus();
                 saveSelectedCharactersToCookie();
             });
-    
+
             select.value = 'MysteryMan';
             const img = select.nextElementSibling;
             img.src = 'portrait/Portrait_MysteryMan.png';
             img.alt = 'MysteryMan';
-    
+
             const logo = img.nextElementSibling;
             logo.src = '';
             logo.alt = '';
             logo.style.display = 'none';
-    
+
             const logo2 = logo.nextElementSibling;
             logo2.src = '';
             logo2.alt = '';
             logo2.style.display = 'none';
-    
+
             const uniquesContainer = logo2.nextElementSibling;
             uniquesContainer.innerHTML = '';
+
+            // Automatically select Lilandra for the last case of "Cosmique Hero + Lilandra"
+            if (tableCaption === 'Cosmique Hero + Lilandra' && index === selects.length - 5) {
+                select.value = 'Lilandra';
+                const event = new Event('change');
+                select.dispatchEvent(event);
+            }
         });
-    
+
         updateSelectMenus();
     }
 
@@ -195,19 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateUniqueCounters() {
         const uniquesCounters = document.getElementById('uniques-counters');
         uniquesCounters.innerHTML = '';
-    
-        // Affiche toujours un chrome car Lilandra est obligatoire
-        const chromeItem = document.createElement('div');
-        chromeItem.className = 'unique-item';
-        const chromeImg = document.createElement('img');
-        chromeImg.src = 'uniques/ICON_GEAR_Chrome.png';
-        chromeImg.alt = 'chrome';
-        chromeItem.appendChild(chromeImg);
-        const chromeCount = document.createElement('div');
-        chromeCount.textContent = '1';
-        chromeItem.appendChild(chromeCount);
-        uniquesCounters.appendChild(chromeItem);
-    
+
         for (const unique in uniqueCounts) {
             const uniqueItem = document.createElement('div');
             uniqueItem.className = 'unique-item';
