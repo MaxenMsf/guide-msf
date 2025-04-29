@@ -90,7 +90,7 @@ EmmaFrost,Emma Frost,Vilain,Mondial,Mutant,,Treillis
 IronMan,Iron man,Hero,Mondial,Techno,,Gamma
 BlackPanther,Black panther,Hero,Mondial,Mystique,,Vibranium
 KittyPryde,Kitty Pryde,Hero,Mondial,Mutant,,Mucus
-Ghost,Fantôme,Vilain,Mondial,Techno,,Quantique
+Ghost,Fantôme,Vilain,Mondial,Techno,Biotechnique,Quantique
 CullObsidian,Cull obsidian,Vilain,Cosmique,Biotechnique,,Luminium
 KreeDmg_Offense,Vilain,Cosmique,Techno,,Promethium
 IronFist,Iron fist,Hero,Ville,Mystique,,Chi
@@ -121,7 +121,7 @@ Hela,Hela,Vilain,Cosmique,Mystique,,Mucus
 Zemo,Baron Zemo,Vilain,Mondial,Expertise,,Serum
 Scream,Scream,Vilain,Ville,Biotechnique,,Spore
 MoonKnight,Moon Knight,Hero,Ville,Mystique,,Gravitonium
-Taskmaster,Taskmaster,Vilain,Mondial,Expertise,,Treillis
+Taskmaster,Taskmaster,Vilain,Mondial,Expertise,Biotechnique,Treillis
 Wasp,Guêpe,Hero,Mondial,Techno,,Moleculaire
 BlackWidow,Black widow,Hero,Mondial,Expertise,,SHIELD
 Sabretooth,Dents-de-sabre,Vilain,Mondial,Mutant,,Moleculaire
@@ -318,4 +318,8 @@ Havok,Havok,Hero,Cosmique,Mutant,,Infini
 Knull,Knull,Vilain,Cosmique,Mystique,,Spore
 DaredevilModern,Daredevil (moderne),Hero,Ville,Expertise,,SHIELD
 HitMonkey,Hit-monkey,Hero,Ville,Expertise,,Gravitonium
-SilverSable,Silver sable, Hero,Ville,Expertise,,Judas
+SilverSable,Silver sable,Hero,Ville,Expertise,,Judas
+VictoriaHand,Victoria Hand,Hero,Mondial,Biotechnique,Techno,SHIELD
+Songbird,Songbird,Hero,Mondial,Biotechnique,,Titanium
+Hyperion,Hypérion,Hero,Cosmique,Biotechnique,,Quantique
+Quasar,Quasar,Hero,Cosmique,Mystique,,Quantique
