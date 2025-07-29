@@ -1,0 +1,91 @@
+/* Centrage du menu d'ère */
+nav#era-main-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Liste verticale sans puces ni marges */
+nav#era-main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Espacement entre les boutons */
+nav#era-main-nav li {
+    margin: 18px 0;
+}
+
+/* Style des boutons du menu d'ère */
+nav#era-main-nav a {
+    display: inline-block;
+    min-width: 420px;
+    min-height: 110px;
+    text-align: center;
+    padding: 36px 0;
+    font-size: 2rem;
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+    background: #444;
+    border: 2px solid #4e54c8;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    letter-spacing: 1px;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+nav#era-main-nav a:hover {
+    background: #4e54c8;
+    border-color: #8f94fb;
+    color: #fff;
+    transform: translateY(-2px) scale(1.04);
+}
+
+nav#era-main-nav a.btn-ere-apocalypse {
+    position: relative;
+    overflow: hidden;
+    background: #444;
+    z-index: 1;
+}
+
+nav#era-main-nav a.btn-ere-apocalypse::before,
+nav#era-main-nav a.btn-ere-xavier::before,
+nav#era-main-nav a.btn-ere-annihilus::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    opacity: 0.22;
+    z-index: 0;
+    transition: opacity 0.3s;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+nav#era-main-nav a.btn-ere-apocalypse::before {
+    background-image: url('../images/ere_apocalypse.png');
+}
+nav#era-main-nav a.btn-ere-xavier::before {
+    background-image: url('../images/ere_professeur.png');
+}
+nav#era-main-nav a.btn-ere-annihilus::before {
+    background-image: url('../images/ere_annihilus.png');
+}
+
+nav#era-main-nav a.btn-ere-apocalypse:hover::before,
+nav#era-main-nav a.btn-ere-xavier:hover::before,
+nav#era-main-nav a.btn-ere-annihilus:hover::before {
+    opacity: 0.35;
+}
+
+nav#era-main-nav a span {
+    position: relative;
+    z-index: 1;
+}

@@ -1,0 +1,42 @@
+.banner-apocalypse {
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.info {
+    max-width: 700px;
+    margin: 32px auto 0 auto;
+    padding: 24px 32px;
+    background: #23243a;
+    color: #fff;
+    border-radius: 18px;
+    font-size: 1.25rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+}
+
+.characters {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.portraits-container {
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    margin: 20px 0;
+}
+
+.portrait-item {
+    text-align: center;
+}
+
+.portrait-item img {
+    width: 125px;
+    height: 150px;
+    border-radius: 10px;
+    border: 2px solid #444;
+}
