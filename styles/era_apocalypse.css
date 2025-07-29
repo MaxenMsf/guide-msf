@@ -18,10 +18,13 @@
 body {
     background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .banner-apocalypse {
     height: auto;
+    width: 100%;
+    max-width: 100%;
     object-fit: contain;
     display: block;
     margin: -10px auto 20px auto;
