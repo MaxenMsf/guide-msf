@@ -1,3 +1,25 @@
+/* ===== STYLES POUR LA PAGE ERA ===== */
+
+/* Variables pour cohérence avec le reste du site */
+:root {
+    --primary-color: #00bfff;
+    --secondary-color: #1a2332;
+    --accent-color: #ff6b35;
+    --dark-bg: #0f1419;
+    --card-bg: rgba(26, 35, 50, 0.9);
+    --text-light: #e8e8e8;
+    --text-muted: #a0a8b0;
+    --gradient-card: linear-gradient(145deg, rgba(26, 35, 50, 0.95) 0%, rgba(15, 20, 25, 0.95) 100%);
+    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.3);
+    --shadow-heavy: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* Corps de la page */
+body {
+    background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
+    min-height: 100vh;
+}
+
 /* Centrage du menu d'ère */
 nav#era-main-nav {
     flex: 1;
@@ -5,6 +27,7 @@ nav#era-main-nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 40px 20px;
 }
 
 /* Liste verticale sans puces ni marges */
@@ -16,42 +39,62 @@ nav#era-main-nav ul {
 
 /* Espacement entre les boutons */
 nav#era-main-nav li {
-    margin: 18px 0;
+    margin: 25px 0;
 }
 
 /* Style des boutons du menu d'ère */
 nav#era-main-nav a {
     display: inline-block;
-    min-width: 420px;
-    min-height: 110px;
+    min-width: 450px;
+    min-height: 120px;
     text-align: center;
-    padding: 36px 0;
-    font-size: 2rem;
+    padding: 40px 20px;
+    font-size: 2.2rem;
     font-family: 'Oswald', sans-serif;
-    color: #fff;
-    background: #444;
-    border: 2px solid #4e54c8;
-    border-radius: 30px;
+    color: var(--text-light);
+    background: var(--gradient-card);
+    border: 2px solid rgba(0, 191, 255, 0.3);
+    border-radius: 20px;
     text-decoration: none;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    box-shadow: var(--shadow-medium);
     letter-spacing: 1px;
-    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
     z-index: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Effet de brillance au survol */
+nav#era-main-nav a::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent, rgba(0, 191, 255, 0.1), transparent);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 nav#era-main-nav a:hover {
-    background: #4e54c8;
-    border-color: #8f94fb;
-    color: #fff;
-    transform: translateY(-2px) scale(1.04);
+    background: rgba(26, 35, 50, 0.98);
+    border-color: var(--primary-color);
+    color: #ffffff;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 191, 255, 0.4);
+}
+
+nav#era-main-nav a:hover::after {
+    opacity: 1;
 }
 
 nav#era-main-nav a.btn-ere-apocalypse {
     position: relative;
     overflow: hidden;
-    background: #444;
     z-index: 1;
 }
 
@@ -61,12 +104,13 @@ nav#era-main-nav a.btn-ere-annihilus::before {
     content: "";
     position: absolute;
     left: 0; top: 0; right: 0; bottom: 0;
-    opacity: 0.22;
-    z-index: 0;
+    opacity: 0.15;
+    z-index: -2;
     transition: opacity 0.3s;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    border-radius: 18px;
 }
 
 nav#era-main-nav a.btn-ere-apocalypse::before {
@@ -82,10 +126,45 @@ nav#era-main-nav a.btn-ere-annihilus::before {
 nav#era-main-nav a.btn-ere-apocalypse:hover::before,
 nav#era-main-nav a.btn-ere-xavier:hover::before,
 nav#era-main-nav a.btn-ere-annihilus:hover::before {
-    opacity: 0.35;
+    opacity: 0.25;
 }
 
 nav#era-main-nav a span {
     position: relative;
     z-index: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav#era-main-nav {
+        padding: 30px 15px;
+    }
+    
+    nav#era-main-nav a {
+        min-width: 350px;
+        min-height: 100px;
+        padding: 30px 15px;
+        font-size: 1.8rem;
+    }
+    
+    nav#era-main-nav li {
+        margin: 20px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    nav#era-main-nav {
+        padding: 20px 10px;
+    }
+    
+    nav#era-main-nav a {
+        min-width: 280px;
+        min-height: 80px;
+        padding: 25px 10px;
+        font-size: 1.5rem;
+    }
+    
+    nav#era-main-nav li {
+        margin: 15px 0;
+    }
 }

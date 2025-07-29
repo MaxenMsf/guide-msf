@@ -1,5 +1,5 @@
 body {
-    margin-top: 95px;
+    margin-top: 70px;
     padding: 0;
 }
 
@@ -7,18 +7,25 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
-    padding: 10px 20px;
+    background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
+    padding: 8px 30px;
     color: #fff;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid #2a3441;
 }
 
 header .logo {
-    height: 70px;
-    margin-left: 20px;
+    height: 50px;
+    margin-left: 10px;
+    transition: transform 0.2s ease;
+}
+
+header .logo:hover {
+    transform: scale(1.05);
 }
 
 header nav {
@@ -30,25 +37,56 @@ header nav {
 header nav ul {
     list-style: none;
     display: flex;
-    justify-content: space-between;
-    gap: 150px;
+    justify-content: center;
+    gap: 40px;
     margin: 0;
     padding: 0;
 }
 
 header nav ul li {
     display: inline;
+    position: relative;
 }
 
 header nav ul li a {
-    color: #fff;
+    color: #e8e8e8;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 35px;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: block;
 }
 
 header nav ul li a:hover {
-    text-decoration: underline;
+    color: #00bfff;
+    background-color: rgba(0, 191, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+
+/* Ajout d'éléments décoratifs pour ressembler à l'interface de jeu */
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #00bfff 50%, transparent 100%);
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #2a3441 50%, transparent 100%);
 }
 
 
@@ -56,41 +94,44 @@ header nav ul li a:hover {
     header {
         flex-direction: column;
         align-items: flex-start;
-        padding: 5px 10px;
+        padding: 5px 15px;
     }
 
     header .logo {
-        height: 50px;
+        height: 40px;
         margin-left: 0;
     }
 
     header nav ul {
         flex-direction: row;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 15px;
         width: 100%;
         justify-content: center;
+        margin-top: 10px;
     }
 
     header nav ul li a {
-        font-size: 25px;
+        font-size: 14px;
+        padding: 8px 12px;
     }
 }
 
 @media (max-width: 480px) {
     header {
-        padding: 2px 5px;
+        padding: 5px 10px;
     }
 
     header .logo {
-        height: 40px;
+        height: 35px;
     }
 
     header nav ul {
-        gap: 5px;
+        gap: 10px;
     }
 
     header nav ul li a {
-        font-size: 20px;
+        font-size: 12px;
+        padding: 6px 10px;
     }
 }

@@ -1,60 +1,339 @@
-section {
-    margin: 20px auto; /* Centre la section horizontalement */
-    padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    background-color: #222222; /* Gris clair */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 1500px; /* Définissez une largeur maximale pour les sections */
+/* ===== STYLES POUR LA PAGE META ===== */
+
+/* Variables pour cohérence avec le reste du site */
+:root {
+    --primary-color: #00bfff;
+    --secondary-color: #1a2332;
+    --accent-color: #ff6b35;
+    --dark-bg: #0f1419;
+    --card-bg: rgba(26, 35, 50, 0.9);
+    --text-light: #e8e8e8;
+    --text-muted: #a0a8b0;
+    --gradient-card: linear-gradient(145deg, rgba(26, 35, 50, 0.95) 0%, rgba(15, 20, 25, 0.95) 100%);
+    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.3);
+    --shadow-heavy: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
+/* Corps de la page */
+body {
+    background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
+    min-height: 100vh;
+}
+
+/* Sections principales */
+section {
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 20px;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-medium);
+    max-width: 1400px;
+    border: 1px solid rgba(0, 191, 255, 0.2);
+    position: relative;
+    overflow: visible;
+    min-height: auto;
+}
+
+/* Effet de brillance sur les sections */
+section::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent, rgba(0, 191, 255, 0.1), transparent);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+section:hover::before {
+    opacity: 1;
+}
+
+/* Couleurs spécifiques par section */
+#arena {
+    border-color: #ff8c00;
+    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2);
+}
+
+#arena::before {
+    background: linear-gradient(45deg, transparent, rgba(255, 140, 0, 0.1), transparent);
+}
+
+#arena h2 {
+    color: #ff8c00;
+}
+
+#raid {
+    border-color: #32cd32;
+    box-shadow: 0 8px 25px rgba(50, 205, 50, 0.2);
+}
+
+#raid::before {
+    background: linear-gradient(45deg, transparent, rgba(50, 205, 50, 0.1), transparent);
+}
+
+#raid h2 {
+    color: #32cd32;
+}
+
+#battleworld {
+    border-color: #4169e1;
+    box-shadow: 0 8px 25px rgba(65, 105, 225, 0.2);
+}
+
+#battleworld::before {
+    background: linear-gradient(45deg, transparent, rgba(65, 105, 225, 0.1), transparent);
+}
+
+#battleworld h2 {
+    color: #4169e1;
+}
+
+#cosmic-trial {
+    border-color: #00bfff;
+    box-shadow: 0 8px 25px rgba(0, 191, 255, 0.2);
+}
+
+#cosmic-trial h2 {
+    color: #00bfff;
+}
+
+#war {
+    border-color: #dc143c;
+    box-shadow: 0 8px 25px rgba(220, 20, 60, 0.2);
+}
+
+#war::before {
+    background: linear-gradient(45deg, transparent, rgba(220, 20, 60, 0.1), transparent);
+}
+
+#war h2 {
+    color: #dc143c;
+}
+
+#tierlist {
+    border-color: #9370db;
+    box-shadow: 0 8px 25px rgba(147, 112, 219, 0.2);
+}
+
+#tierlist h2 {
+    color: #9370db;
+}
+
+/* Titres de sections */
 h2 {
     text-align: center;
-    color: white;
+    color: var(--text-light);
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-shadow: 0 0 20px currentColor;
+    position: relative;
 }
 
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+/* Conteneur des équipes pour les sections avec plusieurs équipes */
+.teams {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Équipes */
 .team {
     display: flex;
-    flex-direction: column; /* Pour que les titres soient au-dessus des équipes */
-    align-items: center; /* Centre les éléments horizontalement */
-    gap: 10px; /* Espace entre les personnages */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding: 20px;
+    background: rgba(15, 20, 25, 0.5);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.team:hover {
+    background: rgba(15, 20, 25, 0.7);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .team h3 {
-    margin-bottom: 10px;
-    color: white; /* Change la couleur en noir */
+    margin: 0;
+    color: var(--text-light);
     text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
 }
 
+/* Classe spéciale pour réduire l'espacement des remplaçants */
+.team.replacements {
+    margin-top: -25px;
+    padding-top: 10px;
+    margin-bottom: 15px;
+}
+
+/* Conteneur des personnages */
 .team .characters {
     display: flex;
-    flex-wrap: wrap; /* Pour que les personnages soient les uns à côté des autres */
-    justify-content: center; /* Centre les personnages horizontalement */
-    gap: 10px; /* Espace entre les personnages */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* Cartes de personnages */
 .character {
-    display: inline-block;
-    margin: 0 5px;
-    padding: 5px; /* Ajoutez un peu de padding pour l'espace entre l'image et la bordure */
-    background-color: #282828;
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    background: rgba(40, 50, 60, 0.8);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(0, 191, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.character:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 191, 255, 0.4);
+    border-color: var(--primary-color);
 }
 
 .character img {
     width: 100px;
     height: 125px;
     border-radius: 10px;
-    transition: transform 0.3s;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
 }
 
-.character img:hover {
-    transform: scale(1.1);
+.character:hover img {
+    filter: brightness(1.1) contrast(1.1);
 }
 
+/* Effet de lueur au survol */
+.character::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(0, 191, 255, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+}
+
+.character:hover::before {
+    opacity: 1;
+}
+
+/* Barres de séparation */
 .remplacent {
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    margin: 15px auto;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+}
+
+/* Image de tierlist */
+.tierlist-image {
     width: 100%;
-    height: 2px;
-    background-color: white; /* Couleur de la barre */
-    margin-top: 10px;
-    margin-bottom: 10px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: var(--shadow-medium);
+    transition: transform 0.3s ease;
+}
+
+.tierlist-image:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    section {
+        margin: 20px 15px;
+        padding: 20px;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    .team h3 {
+        font-size: 1.2rem;
+    }
+    
+    .team .characters {
+        gap: 10px;
+    }
+    
+    .character img {
+        width: 80px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        margin: 15px 10px;
+        padding: 15px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .team {
+        padding: 15px;
+    }
+    
+    .team h3 {
+        font-size: 1.1rem;
+    }
+    
+    .character img {
+        width: 70px;
+        height: 87px;
+    }
+    
+    .team .characters {
+        gap: 8px;
+    }
 }

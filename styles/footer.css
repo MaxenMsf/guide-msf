@@ -1,0 +1,185 @@
+/* ===== STYLES POUR LE FOOTER ===== */
+
+.footer {
+    background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
+    padding: 20px 30px;
+    color: #e8e8e8;
+    border-top: 2px solid #2a3441;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Lignes décoratives comme le header */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #00bfff 50%, transparent 100%);
+}
+
+.footer::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #2a3441 50%, transparent 100%);
+}
+
+/* Contenu du footer */
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#footer-text {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0;
+    color: #e8e8e8;
+}
+
+/* Liens sociaux */
+.footer-social {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #e8e8e8;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.footer-social a:hover {
+    background-color: rgba(0, 191, 255, 0.1);
+    border-color: rgba(0, 191, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Icônes avec couleurs spécifiques */
+.footer-social a i {
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+/* Discord */
+.footer-social a[href*="discord"] i {
+    color: #5865f2;
+}
+
+.footer-social a[href*="discord"]:hover {
+    background-color: rgba(88, 101, 242, 0.1);
+    border-color: rgba(88, 101, 242, 0.3);
+}
+
+.footer-social a[href*="discord"]:hover i {
+    color: #7289da;
+    transform: scale(1.1);
+}
+
+/* YouTube */
+.footer-social a[href*="youtube"] i {
+    color: #ff0000;
+}
+
+.footer-social a[href*="youtube"]:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+    border-color: rgba(255, 0, 0, 0.3);
+}
+
+.footer-social a[href*="youtube"]:hover i {
+    color: #ff4444;
+    transform: scale(1.1);
+}
+
+/* Twitch */
+.footer-social a[href*="twitch"] i {
+    color: #9146ff;
+}
+
+.footer-social a[href*="twitch"]:hover {
+    background-color: rgba(145, 70, 255, 0.1);
+    border-color: rgba(145, 70, 255, 0.3);
+}
+
+.footer-social a[href*="twitch"]:hover i {
+    color: #a970ff;
+    transform: scale(1.1);
+}
+
+/* Séparateurs */
+.footer-separator {
+    color: #2a3441;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer {
+        padding: 15px 20px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .footer-social {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .footer-social a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .footer-social a i {
+        font-size: 20px;
+    }
+    
+    #footer-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        gap: 10px;
+    }
+    
+    .footer-social {
+        gap: 10px;
+    }
+    
+    .footer-social a {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+    
+    .footer-social a i {
+        font-size: 18px;
+    }
+}

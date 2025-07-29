@@ -1,133 +1,316 @@
+/* ===== STYLES POUR LA PAGE XAVIER ===== */
+
+/* Variables pour cohérence avec le reste du site */
+:root {
+    --primary-color: #00bfff;
+    --secondary-color: #1a2332;
+    --accent-color: #ff6b35;
+    --dark-bg: #0f1419;
+    --card-bg: rgba(26, 35, 50, 0.9);
+    --text-light: #e8e8e8;
+    --text-muted: #a0a8b0;
+    --gradient-card: linear-gradient(145deg, rgba(26, 35, 50, 0.95) 0%, rgba(15, 20, 25, 0.95) 100%);
+    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.3);
+    --shadow-heavy: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* Corps de la page */
+body {
+    background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
 table {
-    width: 75%;
-    margin: 0 auto;
-    border-collapse: collapse;
+    width: 85%;
+    margin: 25px auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--gradient-card);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid rgba(0, 191, 255, 0.2);
+    position: relative;
+}
+
+/* Effet de brillance sur les tables */
+table::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent, rgba(0, 191, 255, 0.1), transparent);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+table:hover::before {
+    opacity: 1;
 }
 
 td, th {
-    border: 1px solid #ddd;
-    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
     text-align: center;
     vertical-align: middle;
     position: relative;
     width: 20%;
+    background: rgba(15, 20, 25, 0.3);
+    transition: all 0.3s ease;
+}
+
+td:hover {
+    background: rgba(15, 20, 25, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 191, 255, 0.2);
+}
+
+td:first-child {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+td:last-child {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 caption {
     font-weight: bold;
-    color: white;
-    margin-bottom: 8px;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+    text-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+    padding: 15px;
 }
 
 .character-select {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    background: rgba(40, 50, 60, 0.8);
+    border: 2px solid rgba(0, 191, 255, 0.3);
+    border-radius: 8px;
+    color: var(--text-light);
+    padding: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.character-select:hover,
+.character-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+    outline: none;
 }
 
 .character-select option {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 60px;
-    padding-left: 70px;
-    display: flex;
-    align-items: center;
+    background: rgba(40, 50, 60, 0.95);
+    color: var(--text-light);
+    padding: 8px;
 }
 
 td img {
     display: block;
-    margin: 0 auto;
+    margin: 8px auto;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+td img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 191, 255, 0.4);
 }
 
 .origin-logo {
     position: absolute;
-    bottom: 8px;
-    left: 8px;
-    width: 20px;
-    height: 20px;
+    bottom: 12px;
+    left: 12px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 191, 255, 0.3);
+    background: rgba(15, 20, 25, 0.8);
+    transition: all 0.3s ease;
+}
+
+.origin-logo:hover {
+    border-color: var(--primary-color);
+    transform: scale(1.1);
 }
 
 .origin-logo2 {
     position: absolute;
-    bottom: 8px;
-    right: 8px;
-    width: 20px;
-    height: 20px;
+    bottom: 12px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 191, 255, 0.3);
+    background: rgba(15, 20, 25, 0.8);
+    transition: all 0.3s ease;
+}
+
+.origin-logo2:hover {
+    border-color: var(--primary-color);
+    transform: scale(1.1);
 }
 
 #origin-counters {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
-    color: white;
+    margin: 30px auto;
+    color: var(--text-light);
+    background: var(--gradient-card);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid rgba(0, 191, 255, 0.2);
+    max-width: 800px;
+    gap: 20px;
 }
 
 .origin-counter {
     text-align: center;
-    margin: 0 10px;
+    margin: 0 15px;
+    padding: 15px;
+    background: rgba(15, 20, 25, 0.5);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.origin-counter:hover {
+    background: rgba(15, 20, 25, 0.7);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 191, 255, 0.3);
 }
 
 .origin-counter img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 191, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.origin-counter:hover img {
+    border-color: var(--primary-color);
+    transform: scale(1.1);
 }
 
 .origin-counter div {
-    margin-top: 5px;
-    font-size: 16px;
+    margin-top: 8px;
+    font-size: 18px;
     font-weight: bold;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
 }
 
 .uniques-container {
-    margin-top: 8px;
+    margin-top: 12px;
     display: flex;
     justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
 .uniques-container img {
-    margin-top: 15px;
-    width: 50px;
-    height: 50px;
-    margin: 0 2px;
+    width: 45px;
+    height: 45px;
+    margin: 0;
+    border-radius: 8px;
+    border: 2px solid rgba(0, 191, 255, 0.3);
+    background: rgba(15, 20, 25, 0.5);
+    transition: all 0.3s ease;
+    padding: 2px;
+}
+
+.uniques-container img:hover {
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 191, 255, 0.3);
 }
 
 #uniques-counters {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
-    color: white;
+    margin: 30px auto;
+    color: var(--text-light);
     flex-wrap: wrap;
+    background: var(--gradient-card);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid rgba(0, 191, 255, 0.2);
+    max-width: 1000px;
+    gap: 15px;
 }
 
 .unique-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 5px;
+    margin: 5px;
+    padding: 15px;
+    background: rgba(15, 20, 25, 0.5);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    min-width: 90px;
+}
+
+.unique-item:hover {
+    background: rgba(15, 20, 25, 0.7);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 191, 255, 0.3);
 }
 
 .unique-item img {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 191, 255, 0.3);
+    transition: all 0.3s ease;
+    margin-bottom: 8px;
+}
+
+.unique-item:hover img {
+    border-color: var(--primary-color);
+    transform: scale(1.1);
 }
 
 .unique-item div {
     font-size: 14px;
     font-weight: bold;
-    color: white;
+    color: var(--primary-color);
     text-align: center;
-    width: 60px;
+    width: 70px;
+    text-shadow: 0 0 8px rgba(0, 191, 255, 0.3);
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
     table {
-        width: 100%;
+        width: 95%;
+        margin: 20px auto;
     }
 
     td, th {
         width: 50%;
         display: inline-block;
         text-align: center;
+        padding: 12px;
+        margin: 2px;
+        border-radius: 15px;
     }
 
     td img, .origin-logo, .origin-logo2 {
@@ -137,29 +320,108 @@ td img {
 
     .character-select {
         width: 100%;
+        font-size: 12px;
     }
 
     #origin-counters {
         flex-direction: column;
         align-items: center;
+        padding: 20px;
+        margin: 20px auto;
     }
 
     .origin-counter {
-        margin: 10px 0;
+        margin: 8px 0;
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .origin-counter img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .origin-counter div {
+        font-size: 16px;
+    }
+
+    #uniques-counters {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .unique-item {
+        margin: 3px;
+        padding: 10px;
+        min-width: 70px;
+    }
+
+    .unique-item img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .unique-item div {
+        font-size: 12px;
+        width: 60px;
     }
 }
 
 @media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    table {
+        width: 100%;
+        margin: 15px auto;
+    }
+
     td, th {
-        padding: 4px;
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    caption {
+        font-size: 1.3rem;
+        padding: 10px;
     }
 
     .origin-counter img {
-        width: 30px;
-        height: 30px;
+        width: 35px;
+        height: 35px;
     }
 
     .origin-counter div {
         font-size: 14px;
+    }
+
+    .unique-item img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .unique-item div {
+        font-size: 11px;
+    }
+
+    .uniques-container img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .origin-logo,
+    .origin-logo2 {
+        width: 20px;
+        height: 20px;
+        bottom: 8px;
+    }
+
+    .origin-logo {
+        left: 8px;
+    }
+
+    .origin-logo2 {
+        right: 8px;
     }
 }

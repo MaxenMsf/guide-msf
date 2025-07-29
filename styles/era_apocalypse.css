@@ -1,42 +1,195 @@
+/* ===== STYLES POUR LES PAGES ERA SPÉCIFIQUES ===== */
+
+/* Variables pour cohérence avec le reste du site */
+:root {
+    --primary-color: #00bfff;
+    --secondary-color: #1a2332;
+    --accent-color: #ff6b35;
+    --dark-bg: #0f1419;
+    --card-bg: rgba(26, 35, 50, 0.9);
+    --text-light: #e8e8e8;
+    --text-muted: #a0a8b0;
+    --gradient-card: linear-gradient(145deg, rgba(26, 35, 50, 0.95) 0%, rgba(15, 20, 25, 0.95) 100%);
+    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.3);
+    --shadow-heavy: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* Corps de la page */
+body {
+    background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
+    min-height: 100vh;
+}
+
 .banner-apocalypse {
     height: auto;
     object-fit: contain;
     display: block;
+    margin: -10px auto 20px auto;
+    border-radius: 15px;
+    box-shadow: var(--shadow-medium);
 }
 
 .info {
-    max-width: 700px;
-    margin: 32px auto 0 auto;
-    padding: 24px 32px;
-    background: #23243a;
-    color: #fff;
-    border-radius: 18px;
-    font-size: 1.25rem;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px 40px;
+    background: var(--gradient-card);
+    color: var(--text-light);
+    border-radius: 20px;
+    font-size: 1.3rem;
+    box-shadow: var(--shadow-medium);
     text-align: center;
     font-family: 'Oswald', sans-serif;
+    border: 1px solid rgba(0, 191, 255, 0.2);
+    position: relative;
+    overflow: visible;
+}
+
+/* Effet de brillance sur le conteneur info */
+.info::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent, rgba(0, 191, 255, 0.1), transparent);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.info:hover::before {
+    opacity: 1;
 }
 
 .characters {
     display: flex;
     justify-content: center;
-    gap: 16px;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .portraits-container {
     display: flex; 
     justify-content: center; 
-    gap: 20px; 
-    margin: 20px 0;
+    gap: 25px; 
+    margin: 30px auto;
+    padding: 30px;
+    background: var(--gradient-card);
+    border-radius: 20px;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid rgba(0, 191, 255, 0.2);
+    max-width: 1200px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+/* Effet de brillance sur le conteneur portraits */
+.portraits-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent, rgba(0, 191, 255, 0.1), transparent);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portraits-container:hover::before {
+    opacity: 1;
 }
 
 .portrait-item {
     text-align: center;
+    padding: 15px;
+    background: rgba(15, 20, 25, 0.5);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.portrait-item:hover {
+    background: rgba(15, 20, 25, 0.7);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 191, 255, 0.3);
 }
 
 .portrait-item img {
-    width: 125px;
-    height: 150px;
-    border-radius: 10px;
-    border: 2px solid #444;
+    width: 130px;
+    height: 155px;
+    border-radius: 12px;
+    border: 2px solid rgba(0, 191, 255, 0.3);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.portrait-item:hover img {
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 191, 255, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .info {
+        margin: 30px 15px;
+        padding: 25px 30px;
+        font-size: 1.1rem;
+    }
+    
+    .portraits-container {
+        margin: 25px 15px;
+        padding: 25px 15px;
+        gap: 20px;
+    }
+    
+    .characters {
+        gap: 15px;
+    }
+    
+    .portrait-item {
+        padding: 12px;
+    }
+    
+    .portrait-item img {
+        width: 110px;
+        height: 135px;
+    }
+}
+
+@media (max-width: 480px) {
+    .info {
+        margin: 20px 10px;
+        padding: 20px 25px;
+        font-size: 1rem;
+    }
+    
+    .portraits-container {
+        margin: 20px 10px;
+        padding: 20px 10px;
+        gap: 15px;
+    }
+    
+    .characters {
+        gap: 10px;
+    }
+    
+    .portrait-item {
+        padding: 10px;
+    }
+    
+    .portrait-item img {
+        width: 90px;
+        height: 115px;
+    }
+    
+    .banner-apocalypse {
+        margin: 15px 10px;
+    }
 }
