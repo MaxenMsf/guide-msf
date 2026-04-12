@@ -138,6 +138,59 @@ body {
     box-shadow: 0 8px 20px rgba(0, 191, 255, 0.4);
 }
 
+.chapters-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.chapter-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    border: none;
+}
+
+.chapter-box::before {
+    display: none;
+}
+
+.chapter-box h3 {
+    margin: 0 0 16px 0;
+    font-size: 1.4rem;
+    color: var(--text-light);
+    text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+}
+
+.chapter-portraits {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 12px;
+    width: 100%;
+}
+
+.chapter-portraits img {
+    width: calc((100% - 48px) / 5);
+    max-width: 130px;
+    min-width: 0;
+    aspect-ratio: 130 / 155;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.chapter-portraits img:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .info {
@@ -164,6 +217,11 @@ body {
         width: 110px;
         height: 135px;
     }
+
+    .chapter-box h3 {
+        font-size: 1.2rem;
+    }
+
 }
 
 @media (max-width: 480px) {
@@ -190,6 +248,14 @@ body {
     .portrait-item img {
         width: 90px;
         height: 115px;
+    }
+
+    .chapter-box h3 {
+        font-size: 1.1rem;
+    }
+
+    .chapter-portraits {
+        gap: 8px;
     }
     
     .banner-apocalypse {

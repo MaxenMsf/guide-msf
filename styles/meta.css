@@ -279,10 +279,19 @@ h2::after {
     border-radius: 15px;
     box-shadow: var(--shadow-medium);
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .tierlist-image:hover {
     transform: scale(1.02);
+}
+
+.tierlist-image:fullscreen {
+    width: auto;
+    max-width: 100vw;
+    max-height: 100vh;
+    border-radius: 0;
+    object-fit: contain;
 }
 
 /* Responsive Design */
