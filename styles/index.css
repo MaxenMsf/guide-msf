@@ -136,10 +136,10 @@
     text-align: center;
     cursor: pointer;
     transition: border-color 0.2s, transform 0.2s;
-    /* 3 par ligne, 2 sur la dernière rangée centrés */
-    flex: 0 0 calc(33.333% - 14px);
+    /* 4 par ligne */
+    flex: 0 0 calc(25% - 15px);
     max-width: 340px;
-    min-width: 240px;
+    min-width: 200px;
 }
 
 .nav-card:hover {
