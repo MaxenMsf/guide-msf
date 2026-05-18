@@ -78,14 +78,15 @@ nav#era-main-nav a:hover {
 /* Fond image par era */
 nav#era-main-nav a.btn-ere-apocalypse::before,
 nav#era-main-nav a.btn-ere-xavier::before,
-nav#era-main-nav a.btn-ere-annihilus::before {
+nav#era-main-nav a.btn-ere-annihilus::before,
+nav#era-main-nav a.btn-ere-fear::before {
     content: '';
     position: absolute;
     inset: 0;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.1;
+    opacity: 0.5;
     border-radius: 9px;
     transition: opacity 0.2s;
     z-index: 0;
@@ -94,6 +95,7 @@ nav#era-main-nav a.btn-ere-annihilus::before {
 nav#era-main-nav a.btn-ere-apocalypse::before  { background-image: url('../images/ere_apocalypse.png'); }
 nav#era-main-nav a.btn-ere-xavier::before      { background-image: url('../images/ere_professeur.png'); }
 nav#era-main-nav a.btn-ere-annihilus::before   { background-image: url('../images/ere_annihilus.png'); }
+nav#era-main-nav a.btn-ere-fear::before        { background-image: url('../images/ere_peur.avif'); }
 
 nav#era-main-nav a:hover::before {
     opacity: 0.18;
