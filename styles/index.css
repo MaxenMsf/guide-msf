@@ -1,472 +1,346 @@
-/* ===== STYLES SPÉCIFIQUES POUR INDEX.HTML ===== */
+/* ============================================================
+   INDEX PAGE — VARIABLES
+   ============================================================ */
 
-/* Variables CSS pour une cohérence de design */
 :root {
-    --primary-color: #00bfff;
-    --secondary-color: #1a2332;
-    --accent-color: #ff6b35;
-    --dark-bg: #0f1419;
-    --card-bg: rgba(26, 35, 50, 0.9);
-    --text-light: #e8e8e8;
-    --text-muted: #a0a8b0;
-    --discord-color: #5865f2;
-    --youtube-color: #ff0000;
-    --twitch-color: #9146ff;
-    --gradient-hero: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
-    --gradient-card: linear-gradient(145deg, rgba(26, 35, 50, 0.95) 0%, rgba(15, 20, 25, 0.95) 100%);
-    --shadow-light: 0 4px 15px rgba(0, 191, 255, 0.1);
-    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.3);
-    --shadow-heavy: 0 15px 35px rgba(0, 0, 0, 0.5);
+    --col-bg:       #0d1117;
+    --col-surface:  #161b24;
+    --col-border:   #1e2530;
+    --col-border2:  #2a3140;
+    --col-text:     #d4d8de;
+    --col-muted:    #8892a0;
+    --col-accent:   #4d9fcc;
+    --col-orange:   #e8925a;
+    --col-discord:  #5865f2;
+    --col-youtube:  #ff3333;
+    --col-twitch:   #9146ff;
 }
 
-/* Reset pour la page index */
-.hero-section,
-.navigation-section,
-.social-section {
-    margin: 0;
-    padding: 0;
-}
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
 
-/* ===== HERO SECTION ===== */
 .hero-section {
-    background: var(--gradient-hero);
-    padding: 80px 20px 60px;
+    background: var(--col-surface);
+    border-bottom: 1px solid var(--col-border);
+    padding: 40px 20px 60px;
     text-align: center;
     position: relative;
     overflow: hidden;
-    min-height: 400px;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-section::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('../images/background.jpg') center/cover;
-    opacity: 0.1;
-    z-index: 0;
+    inset: 0;
+    background: url('../images/background.jpg') center / cover;
+    opacity: 0.06;
+    pointer-events: none;
 }
 
 .hero-content {
     position: relative;
     z-index: 1;
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .hero-logo {
-    margin-bottom: 30px;
-    overflow: visible;
+    margin-bottom: 20px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .main-logo {
     height: auto;
+    max-height: 140px;
+    max-width: 360px;
     width: auto;
-    max-height: 120px;
-    max-width: 300px;
     object-fit: contain;
-    filter: drop-shadow(0 0 20px rgba(0, 191, 255, 0.3));
-    transition: transform 0.3s ease;
-}
-
-.main-logo:hover {
-    transform: scale(1.05) rotate(2deg);
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.8rem;
     font-weight: 700;
-    color: var(--text-light);
-    margin-bottom: 20px;
-    text-shadow: 0 0 30px rgba(0, 191, 255, 0.5);
-    background: linear-gradient(45deg, var(--primary-color), #ffffff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: titleGlow 3s ease-in-out infinite alternate;
-}
-
-@keyframes titleGlow {
-    0% { filter: brightness(1); }
-    100% { filter: brightness(1.2); }
+    letter-spacing: 1px;
+    color: #f0f2f5;
+    margin-bottom: 12px;
 }
 
 .hero-subtitle {
-    font-size: 1.4rem;
-    color: var(--text-muted);
-    margin-bottom: 40px;
-    font-weight: 300;
+    font-size: 1.05rem;
+    color: var(--col-muted);
+    font-weight: 400;
 }
 
-.hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    color: var(--text-light);
-}
-
-.stat-item i {
-    font-size: 2rem;
-    color: var(--primary-color);
-    padding: 15px;
-    border: 2px solid var(--primary-color);
-    border-radius: 50%;
-    background: rgba(0, 191, 255, 0.1);
-    transition: all 0.3s ease;
-}
-
-.stat-item:hover i {
-    background: var(--primary-color);
-    color: white;
-    transform: scale(1.1);
-}
-
-.stat-item span {
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
-/* ===== NAVIGATION SECTION ===== */
-.navigation-section {
-    padding: 80px 20px;
-    background: var(--dark-bg);
-}
+/* ============================================================
+   SHARED SECTION CONTAINER
+   ============================================================ */
 
 .container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
     text-align: center;
-    font-size: 2.5rem;
-    color: var(--text-light);
-    margin-bottom: 50px;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #f0f2f5;
+    margin-bottom: 40px;
     position: relative;
 }
 
 .section-title::after {
     content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--col-accent);
+    margin: 10px auto 0;
     border-radius: 2px;
 }
 
+/* ============================================================
+   NAVIGATION CARDS
+   ============================================================ */
+
+.navigation-section {
+    background: var(--col-bg);
+    padding: 70px 20px;
+}
+
 .nav-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-    margin-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
 }
 
 .nav-card {
-    background: var(--gradient-card);
-    border-radius: 15px;
-    padding: 30px;
+    background: var(--col-surface);
+    border: 1px solid var(--col-border2);
+    border-radius: 10px;
+    padding: 28px 24px;
     text-align: center;
     cursor: pointer;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0, 191, 255, 0.2);
-    position: relative;
-    overflow: hidden;
-}
-
-.nav-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(0, 191, 255, 0.05), transparent);
-    transform: rotate(45deg);
-    transition: all 0.6s ease;
-    opacity: 0;
-}
-
-.nav-card:hover::before {
-    opacity: 1;
-    animation: shimmer 1.5s ease-in-out;
-}
-
-@keyframes shimmer {
-    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    transition: border-color 0.2s, transform 0.2s;
+    /* 3 par ligne, 2 sur la dernière rangée centrés */
+    flex: 0 0 calc(33.333% - 14px);
+    max-width: 340px;
+    min-width: 240px;
 }
 
 .nav-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-heavy);
-    border-color: var(--primary-color);
+    border-color: var(--col-accent);
+    transform: translateY(-4px);
 }
 
 .card-icon {
-    margin-bottom: 20px;
+    margin-bottom: 14px;
 }
 
 .card-icon i {
-    font-size: 3rem;
-    color: var(--primary-color);
-    transition: all 0.3s ease;
-}
-
-.nav-card:hover .card-icon i {
-    color: var(--accent-color);
-    transform: scale(1.2) rotate(5deg);
+    font-size: 2.2rem;
+    color: var(--col-accent);
 }
 
 .nav-card h3 {
-    font-size: 1.5rem;
-    color: var(--text-light);
-    margin-bottom: 15px;
-    font-weight: 600;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #f0f2f5;
+    margin-bottom: 10px;
+    letter-spacing: 0.3px;
 }
 
 .nav-card p {
-    color: var(--text-muted);
-    line-height: 1.6;
-    font-size: 1rem;
+    color: var(--col-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
-/* ===== SOCIAL SECTION ===== */
+/* ============================================================
+   SOCIAL SECTION
+   ============================================================ */
+
 .social-section {
-    padding: 80px 20px;
-    background: var(--secondary-color);
+    background: var(--col-surface);
+    border-top: 1px solid var(--col-border);
+    padding: 70px 20px;
 }
 
 .social-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 40px;
-    margin-top: 60px;
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin-top: 10px;
 }
 
 .social-card {
-    background: var(--gradient-card);
-    border-radius: 20px;
-    padding: 0;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--col-bg);
+    border: 1px solid var(--col-border2);
+    border-radius: 10px;
     overflow: hidden;
-    position: relative;
-    width: 100%;
-    max-width: 450px;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.2s;
 }
 
 .social-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--shadow-heavy);
+    transform: translateY(-4px);
 }
+
+.discord-card:hover  { border-color: var(--col-discord); }
+.youtube-card:hover  { border-color: var(--col-youtube); }
+.twitch-card:hover   { border-color: var(--col-twitch); }
 
 .social-header {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 25px 30px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 12px;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--col-border);
 }
 
 .social-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    color: white;
+    font-size: 1.3rem;
+    color: #fff;
+    flex-shrink: 0;
 }
 
-.discord .social-icon {
-    background: var(--discord-color);
-}
-
-.youtube .social-icon {
-    background: var(--youtube-color);
-}
-
-.twitch .social-icon {
-    background: var(--twitch-color);
-}
+.discord-card .social-icon  { background: var(--col-discord); }
+.youtube-card .social-icon  { background: var(--col-youtube); }
+.twitch-card .social-icon   { background: var(--col-twitch); }
 
 .social-header h3 {
-    font-size: 1.4rem;
-    color: var(--text-light);
-    font-weight: 600;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #f0f2f5;
+    letter-spacing: 0.3px;
 }
 
 .social-content {
-    padding: 25px 30px;
-    color: var(--text-light);
+    padding: 20px 24px;
+    color: var(--col-text);
 }
 
 .social-content p {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     line-height: 1.6;
+    font-size: 0.95rem;
 }
 
 .social-content ul {
     list-style: none;
     padding: 0;
-    margin: 15px 0;
+    margin: 10px 0;
 }
 
 .social-content li {
-    padding: 8px 0;
+    padding: 5px 0 5px 16px;
     position: relative;
-    padding-left: 20px;
+    font-size: 0.9rem;
+    color: var(--col-muted);
 }
 
 .social-content li::before {
-    content: '▶';
+    content: '›';
     position: absolute;
     left: 0;
-    color: var(--primary-color);
+    color: var(--col-accent);
+    font-size: 1.1rem;
+    line-height: 1.3;
 }
 
 .social-cta {
     font-style: italic;
-    color: var(--primary-color) !important;
+    color: var(--col-accent) !important;
     font-weight: 500;
-    margin-top: 20px !important;
+    margin-top: 14px !important;
+    font-size: 0.9rem !important;
 }
 
 .social-image {
-    padding: 0 30px 30px;
+    padding: 0 24px 24px;
 }
 
 .social-image img {
     width: 100%;
-    height: 200px;
+    height: 160px;
     object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+    border-radius: 7px;
+    opacity: 0.85;
 }
 
-.social-card:hover .social-image img {
-    transform: scale(1.05);
-}
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 
-/* Effets spéciaux pour chaque carte sociale */
-.discord-card:hover {
-    border-color: var(--discord-color);
-    box-shadow: 0 15px 35px rgba(88, 101, 242, 0.3);
-}
-
-.youtube-card:hover {
-    border-color: var(--youtube-color);
-    box-shadow: 0 15px 35px rgba(255, 0, 0, 0.3);
-}
-
-.twitch-card:hover {
-    border-color: var(--twitch-color);
-    box-shadow: 0 15px 35px rgba(145, 70, 255, 0.3);
-}
-
-/* Ajustement spécial pour avoir une disposition centrée avec 3 cartes */
-@media (min-width: 1200px) {
+@media (min-width: 1100px) {
     .social-grid {
-        grid-template-columns: repeat(3, 400px);
-        justify-content: center;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media (max-width: 1199px) and (min-width: 768px) {
-    .social-grid {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 900px;
-        margin: 60px auto 0;
-    }
-    
-    .social-card:nth-child(3) {
-        grid-column: 1 / -1;
-        justify-self: center;
-        max-width: 400px;
-    }
-}
-/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
-    
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-    
-    .hero-stats {
-        gap: 20px;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-    }
-    
+
     .nav-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 14px;
     }
-    
+
+    .nav-card {
+        flex: 0 0 calc(50% - 7px);
+        min-width: 200px;
+    }
+
     .social-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
     }
-    
-    .main-logo {
-        max-height: 80px;
-        max-width: 250px;
+
+    .navigation-section,
+    .social-section {
+        padding: 50px 15px;
     }
 }
 
 @media (max-width: 480px) {
     .hero-section {
-        padding: 60px 15px 40px;
+        padding: 40px 15px 32px;
+        min-height: 200px;
     }
-    
+
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
-    
-    .hero-subtitle {
-        font-size: 1rem;
+
+    .main-logo {
+        max-height: 100px;
     }
-    
-    .navigation-section,
-    .social-section {
-        padding: 60px 15px;
-    }
-    
-    .nav-card,
-    .social-card {
-        padding: 20px;
-    }
-    
-    .social-header,
-    .social-content {
-        padding: 20px;
-    }
-    
-    .social-image {
-        padding: 0 20px 20px;
+
+    .nav-card {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 20px 18px;
     }
 }

@@ -1,345 +1,283 @@
-/* ===== STYLES POUR LES PAGES ERA SPÉCIFIQUES ===== */
+/* ============================================================
+   ERA DETAIL PAGES (apocalypse, professeurX, annihilus)
+   ============================================================ */
 
-/* Variables pour cohérence avec le reste du site */
 :root {
-    --primary-color: #00bfff;
-    --secondary-color: #1a2332;
-    --accent-color: #ff6b35;
-    --dark-bg: #0f1419;
-    --card-bg: rgba(26, 35, 50, 0.9);
-    --text-light: #e8e8e8;
-    --text-muted: #a0a8b0;
-    --gradient-card: linear-gradient(145deg, rgba(26, 35, 50, 0.95) 0%, rgba(15, 20, 25, 0.95) 100%);
-    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.3);
-    --shadow-heavy: 0 15px 35px rgba(0, 0, 0, 0.5);
+    --col-bg:      #0d1117;
+    --col-surface: #161b24;
+    --col-border:  #1e2530;
+    --col-border2: #2a3140;
+    --col-text:    #d4d8de;
+    --col-muted:   #8892a0;
+    --col-accent:  #4d9fcc;
 }
 
-/* Corps de la page */
+/* ============================================================
+   BODY
+   ============================================================ */
+
 body {
-    background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
+    background: var(--col-bg);
     min-height: 100vh;
-    overflow-x: hidden;
 }
+
+/* ============================================================
+   BANNER VIDEO / IMAGE
+   ============================================================ */
 
 .banner-apocalypse {
-    height: auto;
-    width: 100%;
-    max-width: 100%;
-    object-fit: contain;
     display: block;
-    margin: -10px auto 20px auto;
-    border-radius: 15px;
-    box-shadow: var(--shadow-medium);
+    width: 100%;
+    max-width: none;
+    height: auto;
+    margin: 0;
+    border-radius: 0;
+    object-fit: cover;
 }
+
+/* ============================================================
+   INFO BLOCK
+   ============================================================ */
 
 .info {
-    max-width: 1200px;
-    width: calc(100% - 40px);
-    margin: 40px auto;
-    padding: 30px 40px;
-    background: var(--gradient-card);
-    color: var(--text-light);
-    border-radius: 20px;
-    font-size: 1.3rem;
-    box-shadow: var(--shadow-medium);
-    text-align: center;
-    font-family: 'Oswald', sans-serif;
-    border: 1px solid rgba(0, 191, 255, 0.2);
+    max-width: 1100px;
+    width: calc(100% - 48px);
+    margin: 0 auto 40px;
+    padding: 28px 36px;
+    background: var(--col-surface);
+    border: 1px solid var(--col-border2);
+    border-radius: 10px;
+    color: var(--col-text);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    font-family: 'Barlow', sans-serif;
     position: relative;
-    overflow: visible;
+    z-index: 1;
 }
 
-/* Effet de brillance sur le conteneur info */
-.info::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, transparent, rgba(0, 191, 255, 0.1), transparent);
-    border-radius: 20px;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+.info ul {
+    margin: 14px 0 14px 24px;
 }
 
-.info:hover::before {
-    opacity: 1;
+.info li {
+    margin: 6px 0;
+    color: var(--col-text);
+}
+
+.info a {
+    color: var(--col-accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.info a:hover {
+    border-color: var(--col-accent);
+}
+
+/* ============================================================
+   PORTRAITS CONTAINER
+   ============================================================ */
+
+.portraits-container {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    padding: 20px;
+    background: var(--col-bg);
+    border: 1px solid var(--col-border);
+    border-radius: 8px;
+    max-width: 900px;
+}
+
+/* ============================================================
+   PORTRAIT CARD
+   ============================================================ */
+
+.portrait-card {
+    background: #1c2330;
+    border: 1px solid var(--col-border2);
+    border-radius: 8px;
+    overflow: hidden;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 150px;
+}
+
+.portrait-card img {
+    width: 110px;
+    height: 136px;
+    border-radius: 8px;
+    object-fit: cover;
+    display: block;
+}
+
+/* ============================================================
+   PORTRAIT ITEM (page portraits with labels)
+   ============================================================ */
+
+.portrait-item {
+    text-align: center;
+    padding: 10px;
+    background: var(--col-bg);
+    border: 1px solid var(--col-border2);
+    border-radius: 8px;
+}
+
+.portrait-item img {
+    width: 110px;
+    height: 136px;
+    border-radius: 8px;
+    object-fit: cover;
+    display: block;
 }
 
 .characters {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 14px;
     flex-wrap: wrap;
 }
 
-.portraits-container {
-    display: flex; 
-    justify-content: center; 
-    gap: 25px; 
-    margin: 30px auto;
-    padding: 30px;
-    background: var(--gradient-card);
-    border-radius: 20px;
-    box-shadow: var(--shadow-medium);
-    border: 1px solid rgba(0, 191, 255, 0.2);
-    max-width: 1200px;
-    flex-wrap: wrap;
-    position: relative;
-}
-
-/* Effet de brillance sur le conteneur portraits */
-.portraits-container::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, transparent, rgba(0, 191, 255, 0.1), transparent);
-    border-radius: 20px;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.portraits-container:hover::before {
-    opacity: 1;
-}
-
-.portrait-item {
-    text-align: center;
-    padding: 15px;
-    background: rgba(15, 20, 25, 0.5);
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-}
-
-.portrait-item:hover {
-    background: rgba(15, 20, 25, 0.7);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 191, 255, 0.3);
-}
-
-.portrait-item img {
-    width: 130px;
-    height: 155px;
-    border-radius: 12px;
-    border: 2px solid rgba(0, 191, 255, 0.3);
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.portrait-item:hover img {
-    border-color: var(--primary-color);
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 191, 255, 0.4);
-}
+/* ============================================================
+   CHAPTERS CONTAINER
+   ============================================================ */
 
 .chapters-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    margin-top: 30px;
+    gap: 16px;
+    margin-top: 20px;
 }
+
+/* ============================================================
+   CHAPTER BOX
+   ============================================================ */
 
 .chapter-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 15px;
+    gap: 12px;
+    padding: 18px 16px;
+    background: var(--col-bg);
+    border: 1px solid var(--col-border);
+    border-radius: 8px;
+    text-align: center;
     width: 100%;
     max-width: 100%;
-    margin-bottom: 25px;
-    padding: 20px;
-    background: rgba(15, 20, 25, 0.5);
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    text-align: center;
     box-sizing: border-box;
 }
 
-.chapter-box::before {
-    display: none;
-}
-
-.chapter-box:hover {
-    background: rgba(15, 20, 25, 0.7);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
 .chapter-box h3 {
-    margin: 0;
-    font-size: 1.4rem;
-    color: var(--text-light);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2rem;
     font-weight: 600;
-    text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+    color: #f0f2f5;
+    margin: 0;
+    letter-spacing: 0.3px;
 }
+
+/* ============================================================
+   CHAPTER PORTRAITS
+   ============================================================ */
 
 .chapter-portraits {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     width: 100%;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0;
     box-sizing: border-box;
-    overflow-x: visible;
 }
 
-.chapter-portraits img {
-    width: 100px;
-    height: 125px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    display: block;
-    margin: 0 auto;
-    object-fit: cover;
-}
-
-.chapter-portraits .character {
-    position: relative;
-    margin: 0 auto;
-    padding: 0;
+.chapter-portraits .portrait-card {
     flex: 0 0 auto;
-    background: rgba(40, 50, 60, 0.8);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    border: 2px solid rgba(0, 191, 255, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 105px;
+    height: 130px;
 }
 
-.chapter-portraits .character:hover {
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 15px 30px rgba(0, 191, 255, 0.4);
-    border-color: var(--primary-color);
+.chapter-portraits .portrait-card img {
+    width: 90px;
+    height: 112px;
 }
 
-.chapter-portraits .character:hover img {
-    filter: brightness(1.1) contrast(1.1);
-}
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 
-.chapter-portraits .character::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, transparent, rgba(0, 191, 255, 0.1), transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    border-radius: 10px;
-}
-
-.chapter-portraits .character:hover::before {
-    opacity: 1;
-}
-
-.chapter-portraits img {
-    box-shadow: none;
-}
-
-.chapter-portraits img:hover {
-    transform: none;
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
-    .info {
-        margin: 30px 15px;
-        padding: 25px 30px;
-        font-size: 1.1rem;
-    }
-    
-    .portraits-container {
-        margin: 25px 15px;
-        padding: 25px 15px;
-        gap: 20px;
-    }
-    
-    .characters {
-        gap: 15px;
-    }
-    
-    .portrait-item {
-        padding: 12px;
-    }
-    
-    .portrait-item img {
-        width: 110px;
-        height: 135px;
+    .banner-apocalypse {
+        width: calc(100% - 24px);
+        margin: 14px auto 18px;
     }
 
-    .chapter-box h3 {
-        font-size: 1.2rem;
+    .info {
+        width: calc(100% - 24px);
+        padding: 20px 20px;
+        font-size: 1rem;
+    }
+
+    .portraits-container {
+        gap: 10px;
+        padding: 14px;
+    }
+
+    .portrait-card {
+        width: 100px;
+        height: 130px;
+    }
+
+    .portrait-card img {
+        width: 90px;
+        height: 112px;
     }
 
     .chapter-portraits {
         flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .chapter-portraits img {
-        width: 80px;
-        height: 100px;
-    }
-
-}
-
-@media (max-width: 480px) {
-    .info {
-        margin: 20px 10px;
-        padding: 20px 25px;
-        font-size: 1rem;
-    }
-    
-    .portraits-container {
-        margin: 20px 10px;
-        padding: 20px 10px;
-        gap: 15px;
-    }
-    
-    .characters {
-        gap: 10px;
-    }
-    
-    .portrait-item {
-        padding: 10px;
-    }
-    
-    .portrait-item img {
-        width: 90px;
-        height: 115px;
-    }
-
-    .chapter-box h3 {
-        font-size: 1.1rem;
-    }
-
-    .chapter-portraits {
         gap: 8px;
     }
 
-    .chapter-portraits img {
-        width: 70px;
-        height: 87px;
+    .chapter-portraits .portrait-card img {
+        width: 74px;
+        height: 92px;
     }
-    
+}
+
+@media (max-width: 480px) {
     .banner-apocalypse {
-        margin: 15px 10px;
+        width: calc(100% - 16px);
+        margin: 10px auto 14px;
+    }
+
+    .info {
+        width: calc(100% - 16px);
+        padding: 16px;
+        font-size: 0.95rem;
+    }
+
+    .portrait-card {
+        width: 85px;
+        height: 115px;
+    }
+
+    .portrait-card img {
+        width: 76px;
+        height: 95px;
+    }
+
+    .chapter-portraits .portrait-card img {
+        width: 64px;
+        height: 80px;
+    }
+
+    .chapter-box h3 {
+        font-size: 1.05rem;
     }
 }

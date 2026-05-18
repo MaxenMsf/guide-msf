@@ -1,0 +1,420 @@
+/* ============================================================
+   GUIDE PAGE — VARIABLES
+   ============================================================ */
+
+:root {
+    --col-bg:        #0d1117;
+    --col-surface:   #161b24;
+    --col-border:    #1e2530;
+    --col-border2:   #2a3140;
+    --col-text:      #d4d8de;
+    --col-muted:     #8892a0;
+    --col-accent:    #4d9fcc;
+    --col-green:     #3aaa5c;
+    --col-orange:    #e8925a;
+    --col-red:       #cc3d4d;
+    --col-green-bg:  rgba(58, 170, 92, 0.12);
+    --col-orange-bg: rgba(232, 146, 90, 0.12);
+    --col-red-bg:    rgba(204, 61, 77, 0.12);
+    --col-green-bd:  rgba(58, 170, 92, 0.35);
+    --col-orange-bd: rgba(232, 146, 90, 0.35);
+    --col-red-bd:    rgba(204, 61, 77, 0.35);
+}
+
+/* ============================================================
+   PAGE WRAPPER
+   ============================================================ */
+
+.guide-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================================
+   PAGE TITLE
+   ============================================================ */
+
+.page-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    text-align: center;
+    color: #f0f2f5;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 36px 0 8px;
+    position: relative;
+}
+
+.page-title::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--col-accent);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* ============================================================
+   JUMP LINK
+   ============================================================ */
+
+.jump-link-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 30px;
+}
+
+.jump-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 24px;
+    background: var(--col-surface);
+    color: var(--col-accent);
+    border: 1px solid var(--col-accent);
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.jump-btn:hover {
+    background: var(--col-accent);
+    color: #0d1117;
+}
+
+/* ============================================================
+   GUIDE SECTIONS (débutant)
+   ============================================================ */
+
+.guide-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.guide-section {
+    background: var(--col-surface);
+    border: 1px solid var(--col-border2);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-bottom: 14px;
+}
+
+.guide-section h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: #f0f2f5;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.guide-section h2 i {
+    color: var(--col-accent);
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.guide-section p {
+    color: var(--col-text);
+    line-height: 1.7;
+    font-size: 0.97rem;
+    margin-bottom: 12px;
+}
+
+.guide-section ul {
+    margin: 10px 0 14px 20px;
+    color: var(--col-text);
+    line-height: 1.7;
+    font-size: 0.97rem;
+}
+
+.guide-section li {
+    margin: 5px 0;
+}
+
+.text-center { text-align: center; }
+.text-muted  { color: var(--col-muted) !important; font-size: 0.9rem !important; }
+
+/* Images dans les sections guide */
+.guide-img {
+    display: block;
+    margin: 16px auto;
+    max-width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--col-border2);
+}
+
+.guide-img.small  { max-height: 180px; width: auto; }
+.guide-img.medium { max-height: 400px; width: auto; }
+
+.img-link {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.img-link:hover .guide-img {
+    opacity: 0.85;
+}
+
+/* ============================================================
+   LEGEND
+   ============================================================ */
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    margin: 24px 0 32px;
+    padding: 18px 24px;
+    background: var(--col-surface);
+    border: 1px solid var(--col-border2);
+    border-radius: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--col-text);
+    font-weight: 500;
+}
+
+.legend-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.legend-dot.green  { background: var(--col-green); }
+.legend-dot.orange { background: var(--col-orange); }
+.legend-dot.red    { background: var(--col-red); }
+
+/* ============================================================
+   FARM GRID
+   ============================================================ */
+
+.farm-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* ============================================================
+   FARM TEAM BOX
+   ============================================================ */
+
+.farm-team {
+    background: var(--col-surface);
+    border: 1px solid var(--col-border2);
+    border-radius: 10px;
+    padding: 20px 24px;
+    text-align: center;
+}
+
+.farm-team h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: #f0f2f5;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.sub-label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--col-muted);
+    margin: 14px 0 10px;
+}
+
+.team-tag {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--col-muted);
+    background: var(--col-bg);
+    border: 1px solid var(--col-border2);
+    border-radius: 4px;
+    padding: 2px 7px;
+}
+
+/* ============================================================
+   FARM CHARACTERS ROW
+   ============================================================ */
+
+.farm-characters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 4px;
+    justify-content: center;
+}
+
+/* ============================================================
+   FARM CHARACTER CARD
+   ============================================================ */
+
+.farm-char {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    flex-shrink: 0;
+    width: 100px;
+    height: 130px;
+}
+
+.farm-char img {
+    display: block;
+    width: 90px;
+    height: 112px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* Bande couleur en bas */
+.farm-char::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+
+.farm-char.green   { border-color: var(--col-green-bd);  background: var(--col-green-bg); }
+.farm-char.green::after  { background: var(--col-green); }
+
+.farm-char.orange  { border-color: var(--col-orange-bd); background: var(--col-orange-bg); }
+.farm-char.orange::after { background: var(--col-orange); }
+
+.farm-char.red     { border-color: var(--col-red-bd);    background: var(--col-red-bg); }
+.farm-char.red::after    { background: var(--col-red); }
+
+.farm-char.neutral { border-color: var(--col-border2); background: var(--col-bg); }
+
+/* ============================================================
+   FARM TEAM WITH LINK
+   ============================================================ */
+
+.farm-team--link {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.farm-team--link h3 {
+    margin-bottom: 0;
+}
+
+.farm-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba(204, 61, 77, 0.1);
+    color: var(--col-red);
+    border: 1px solid rgba(204, 61, 77, 0.4);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.farm-link-btn:hover {
+    background: rgba(204, 61, 77, 0.2);
+    color: #e05565;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .guide-page {
+        padding: 0 14px 50px;
+    }
+
+    .guide-section {
+        padding: 20px;
+    }
+
+    .legend {
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .legend-item {
+        font-size: 0.85rem;
+    }
+
+    .farm-team {
+        padding: 16px;
+    }
+
+    .farm-char {
+        width: 85px;
+        height: 115px;
+    }
+
+    .farm-char img {
+        width: 76px;
+        height: 95px;
+    }
+
+    .farm-team--link {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .legend {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .farm-char {
+        width: 75px;
+        height: 100px;
+    }
+
+    .farm-char img {
+        width: 68px;
+        height: 85px;
+    }
+
+    .guide-section h2 {
+        font-size: 1.25rem;
+    }
+}

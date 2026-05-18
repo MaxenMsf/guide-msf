@@ -5,227 +5,240 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guide</title>
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/meta.css">
+    <link rel="stylesheet" href="styles/guide.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="scripts/script.js"></script>
 </head>
-<style>
-    p, li {
-        color: white;
-    }
-
-    img {
-            display: block;
-            margin: 0 auto;
-    }
-    @media (max-width: 768px) {
-        .responsive-img {
-            width: 100%;
-            height: auto;
-        }
-    }
-
-    /* Classes pour les backgrounds colorés des personnages */
-    .character.bg-vert {
-        background-color: #28a745;
-    }
-
-    .character.bg-orange {
-        background-color: #fd7e14;
-    }
-
-    .character.bg-rouge {
-        background-color: #dc3545;
-    }
-</style>
 <body>
     <div id="header-container"></div>
-    <h1>Guide débutant</h1>
-    <div style="text-align: center; margin: 20px 0;">
-        <a href="#guide-farm" style="display: inline-block; padding: 15px 30px; background-color: #00bfff; color: white; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 18px; border: 2px solid #444; transition: background-color 0.3s;">
-            Accéder directement au guide de farm
-        </a>
-    </div>
-    <div class="section-container">
-        <section id="text-section">
-            <h2>Rejoindre le discord</h2>
-            <p>Marvel Strike Force est un jeu en évolution constante et des infos postées dans ce guide peuvent être obsolètes, si vous avez des doutes n'hésitez pas à rejoindre mon discord et poser toutes vos questions en cliquant sur l'image</p>
-            <a href="https://discord.gg/kvm98xeE9e" target="_blank">
-                <img src="images/Fond bleu.png" alt="discord" style="height: 200px;">
+
+    <!-- ===== GUIDE DÉBUTANT ===== -->
+    <div class="guide-page">
+        <h1 class="page-title">Guide débutant</h1>
+
+        <div class="jump-link-wrap">
+            <a href="#guide-farm" class="jump-btn">
+                <i class="fas fa-arrow-down"></i> Accéder au guide de farm
             </a>
-        </section>
-        <section id="text-section">
-            <h2>Trouver une alliance​</h2>
-            <p>Rejoindre une alliance va être primordial pour avoir une avancer dans le jeu, le raid étant le mode de jeu donnant le plus de récompenses, je vous donne donc le lien du mercato qui est un serveur discord qui met en relation des recruteurs et des joueurs en recherche d'alliance, il y en a pour tous les niveaux donc je vous invite à le rejoindre​</p>
-            <a href="https://discord.gg/VmYXqxD" target="_blank">
-                <img src="images/Mercato.PNG" alt="discord mercato" style="height: 200px;">
-            </a>
-        </section>
-        <section id="text-section">
-            <h2>Crée un compte msf.gg​​</h2>
-            <p>Msf.gg est un site utile qui permet de facilement gérer son roaster, certaines alliances l'utilise mais le plus important sont les cadeaux gratuits et les avancées dans les phases qui rendent certains événements impossibles à finir sans l'aide du web donc crée un compte et le liée à son compte en jeu est très important pour une bonne avancée dans le jeu mais aussi pour simplifier le travail de vos capitaines d'alliance​
-            <br>
-            Il y a d"ailleurs 4 codes permanent que vous pouvez déjà entrer dans la partie "Cadeau de joueur" pour récupérer quelques récompenses plus ou moins interessantes :</p>
-            <img class="responsive-img" src="images/codes.PNG" alt="codes msf.gg">
-            <p style="text-align: center;">Les codes sont : <em>ZOMBIE</em> - <em>FOUR</em> - <em>GHOSTRIDER</em> - <em>SPIDERMAN</em></p>
-            <p style="text-align: center;">Notez qu'il faut attendre deux minutes entre chaque code donc c'est normal que cela ne fonctionne pas si vous les rentrez trop vite.</p>
-            <a href="https://api.marvelstrikeforce.com/auth/login?login_challenge=5a5770d5718a46a8a0f49970e3d579b1​" target="_blank">
-                <img class="responsive-img" src="images/msfgg.png" alt="msf.gg">
-            </a>
-        </section>
-        <section id="text-section">
-            <h2>Utiliser ses ressources​​</h2>
-            <p>Les noyaux sont une ressource rare dans le jeu il est important de bien se classer en arène pour en avoir le plus possible. Le meilleur moyen de les dépensés n'est pas d'ouvrir des orbes avec mais d'acheter les recharges d'énergies jusque qu'a qu'elle ne coute 100 noyaux (il faut donc acheter les 4 recharges d'énergie coutant 50 noyaux soit 200 noyaux par jour) pour l'or je vous conseille d'utiliser 1M d'or par jour pour garder une réserve à utiliser en cas de besoin. (Si vous utiliser le conseil d'1M d'or par jour vous n'aurez aucun problème à dépenser 200 noyaux par jour).​​</p>
-            <img class="responsive-img" src="images/cores.jpg" alt="noyaux">
-        </section>
-        <section id="text-section">
-            <h2>Comment dépenser ses crédits​​</h2>
-            <p>Les crédits sont désormais partager en deux boutiques</p>
-            <li>Boutique de saison</li>
-            <li>Boutique "globale"</li>
-            <p>Dans les boutiques de saison le plus intéressant à acheter sont l'équipement palier 20 et si vous ne l'avez pas encore débloquer alors les éclats de personnages dont vous avez besoin.<br>
-            Dans la boutique "globale", concentrez-vous sur l'achat de personnages meta qui vous aideront dans votre progression.</p>
-            <img src="images/credits.PNG" alt="credits">
-        </section>
-        <section id="text-section">
-            <h2>Comment dépenser ses crédits de promotion​</h2>
-            <p>Le fonctionnement des étoiles rouges est assez simple, elles se mettent au-dessus de vos étoiles jaunes pour booster vos persos, si vous avez des perso 7 étoiles rouges mais 5 étoiles Jaunes vous aurez 2 étoile rouges "inutiles" (jusqu'à ce que votre personnage soit lui aussi 7 étoiles jaunes alors vous aurez le plein potentiel de vos 7 étoiles rouges)<br>​
-                Donc n'achetez pas d'étoiles rouges au-delà de vos étoiles jaunes, vous pourrez peut-être les drops entre-temps​<br>
-                Gardez vos crédits de promotion noir pour les personnages meta.
-            </p>
-            <img src="images/Promo noirs.PNG" alt="promotion noirs">
-        </section>
-        <section id="text-section">
-            <h2>Les orbes étoiles rouges​</h2>
-            <p>Il y a 2 types d'orbes étoiles rouges, il y a celle avec x10 crédits de promotions noires et celle avec un personnage en vedette et x1 des crédits de promotion noire je vous conseille de ne pas ouvrir vos orbes quand il y a un personnage en vedette et de plutôt ouvrir vos orbes sur le x10 crédits de promotions noires car ils seront très importants pour acheter les étoiles rouges des persos qui les nécessitent.</p>
-            <img class="responsive-img" src="images/orbes_rs.PNG" alt="orbes étoiles rouges">
-            <p>Si un personnage vous intéresse je vous conseille plutôt d'ouvrir les orbes d'élites quand ce personnage est en vedette, d'ailleurs a l'inverse des orbes étoiles rouges normales, n'ouvrez jamais vos orbes élites lorsque aucun personnage n'est en vedette​</p>
-            <img src="images/orbes_elite.PNG" alt="orbes étoiles rouges elite">
-        </section>
-        <section id="text-section">
-            <h2>L'importance du positionnement</h2>
-            <img class="responsive-img" src="images/placement.PNG" alt="placement">
-        </section>
-        <section id="text-section">
-            <h2>Focus le raid</h2>
-            <p>Le raid est le mode de jeu le plus rentable peu importe le niveau il est donc important de se concentrer sur les équipes de raid avant de commencer à monter d'autres équipes​​</p>
-            <img src="images/raid.png" alt="raid" style="height: 500px;">
-        </section>
-    </div>
-    <h1 id="guide-farm">Guide farm</h1>
-    <div class="team" style="flex-direction: row;">
-        <div class="character bg-vert">A monter au max sans soucis</div></p>
-        <div class="character bg-orange">A ne pas mettre au max sauf sous certaines conditions</div></p>
-        <div class="character bg-rouge">A ne pas mettre au dessus du niveau 100</div></p>
-    </div>
-    <div class="section-container">
-        <div class="team">
-            <h3>4 Fantastiques</h3>
-            <div class="characters">
-                <div class="character bg-vert"><img src="portrait/Portrait_MrFantasticMCU.png" alt="Character 1"></div>
-                <div class="character bg-vert"><img src="portrait/Portrait_InvisibleWomanMCU.png" alt="Character 2"></div>
-                <div class="character bg-vert"><img src="portrait/Portrait_FranklinRichards.png" alt="Character 3"></div>
-                <div class="character bg-orange"><img src="portrait/Portrait_HumanTorch.png" alt="Character 5"></div>
-                <div class="character bg-orange"><img src="portrait/Portrait_InvisibleWoman.png" alt="Character 5"></div>
-            </div>
-            <h3>Remplacement</h3>
-            <div class="characters">
-                <div class="character"><img src="portrait/Portrait_MysteryMan.png" alt="Character 1"></div>
-                <div class="character"><img src="portrait/Portrait_MysteryMan.png" alt="Character 2"></div>
-                <div class="character"><img src="portrait/Portrait_MysteryMan.png" alt="Character 3"></div>
-                <div class="character"><img src="portrait/Portrait_MysteryMan.png" alt="Character 5"></div>
-                <div class="character bg-rouge"><img src="portrait/Portrait_Thing.png" alt="Character 5"></div>
-            </div>
         </div>
-        <div class="team">
-            <h3>Justicier (raid)</h3>
-            <div class="characters">
-                <div class="character bg-vert"><img src="portrait/Portrait_DaredevilModern.png" alt="Character 1"></div>
-                <div class="character bg-vert"><img src="portrait/Portrait_SilverSable.png" alt="Character 2"></div>
-                <div class="character bg-vert"><img src="portrait/Portrait_HitMonkey.png" alt="Character 3"></div>
-                <div class="character bg-orange"><img src="portrait/Portrait_Punisher.png" alt="Character 4"></div>
-                <div class="character bg-rouge"><img src="portrait/Portrait_Elektra.png" alt="Character 5"></div>
-            </div>
-        </div>
-        <div class="team">
-            <h3>Uncanny Avengers (raid et raid présentation)</h3>
-            <div class="characters">
-                <div class="character bg-orange"><img src="portrait/Portrait_JeanGrey.png" alt="Character 1"></div>
-                <div class="character bg-orange"><img src="portrait/Portrait_Beast.png" alt="Character 2"></div>
-                <div class="character bg-orange"><img src="portrait/Portrait_Storm.png" alt="Character 3"></div>
-                <div class="character bg-orange"><img src="portrait/Portrait_Falcon.png" alt="Character 4"></div>
-                <div class="character bg-orange"><img src="portrait/Portrait_Hercules.png" alt="Character 5"></div>
-            </div>
-        </div>
-        <div class="team">
-            <h3>Club des damnées (raid)</h3>
-            <div class="characters">
-                <div class="character bg-vert"><img src="portrait/Portrait_SebastianShaw.png" alt="Character 1"></div>
-                <div class="character bg-vert"><img src="portrait/Portrait_Azazel.png" alt="Character 2"></div>
-                <div class="character bg-vert"><img src="portrait/Portrait_RachelSummers.png" alt="Character 3"></div>
-                <div class="character bg-vert"><img src="portrait/Portrait_EmmaFrost.png" alt="Character 4"></div>
-                <div class="character bg-rouge"><img src="portrait/Portrait_MadelynePryor.png" alt="Character 5"></div>
-            </div>
-        </div>
-        <div class="team">
-            <h3>Champions (raid et raid présentation)</h3>
-            <div class="characters">
-                <div class="character bg-orange"><img src="portrait/Portrait_NovaSamAlexander.png" alt="Character 1"></div>
-                <div class="character bg-orange"><img src="portrait/Portrait_MoonGirl.png" alt="Character 2"></div>
-                <div class="character bg-rouge"><img src="portrait/Portrait_UltSpiderMan.png" alt="Character 3"></div>
-                <div class="character bg-rouge"><img src="portrait/Portrait_AmadeusCho.png" alt="Character 4"></div>
-                <div class="character bg-rouge"><img src="portrait/Portrait_MsMarvel.png" alt="Character 5"></div>
-            </div>
-        </div>
-        <div class="team">
-            <h3>Insidious Six/Vautour/Shocker (raid)</h3>
-            <div class="characters">
-                <div class="character bg-vert"><img src="portrait/Portrait_Scorpion.png" alt="Character 1"></div>
-                <div class="character bg-vert"><img src="portrait/Portrait_SuperiorSpiderMan.png" alt="Character 2"></div>
-                <div class="character bg-vert"><img src="portrait/Portrait_Hobgoblin.png" alt="Character 3"></div>
-                <div class="character bg-vert"><img src="portrait/Portrait_Vulture.png" alt="Character 4"></div>
-                <div class="character bg-orange"><img src="portrait/Portrait_Shocker.png" alt="Character 5"></div>
-            </div>
-        </div>
-        <div class="team">
-            <h3>Armes Immortelles (raid)</h3>
-            <div class="characters">
-                <div class="character bg-vert"><img src="portrait/Portrait_LadyBullseye.png" alt="Character 1"></div>
-                <div class="character bg-vert"><img src="portrait/Portrait_SwordMaster.png" alt="Character 2"></div>
-                <div class="character bg-vert"><img src="portrait/Portrait_SteelSerpent.png" alt="Character 3"></div>
-                <div class="character bg-orange"><img src="portrait/Portrait_IronFist.png" alt="Character 4"></div>
-                <div class="character bg-rouge"><img src="portrait/Portrait_IronFistOrson.png" alt="Character 5"></div>
-            </div>
-        </div>
-        <div class="team">
-            <h3>Déblocage d'Apocalypse</h3>
-            <div style="text-align: center; margin: 20px 0;">
-                <a href="era_apocalypse.html" style="display: inline-block; padding: 15px 30px; background-color: #8B0000; color: white; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 18px; border: 2px solid #444; transition: background-color 0.3s;">
-                    Guide pour débloquer Apocalypse ici
+
+        <div class="guide-sections">
+
+            <div class="guide-section">
+                <h2><i class="fab fa-discord"></i> Rejoindre le discord</h2>
+                <p>Marvel Strike Force est un jeu en évolution constante et des infos postées dans ce guide peuvent être obsolètes. Si vous avez des doutes, n'hésitez pas à rejoindre le discord et poser toutes vos questions en cliquant sur l'image.</p>
+                <a href="https://discord.gg/kvm98xeE9e" target="_blank" class="img-link">
+                    <img src="images/Fond bleu.png" alt="Discord" class="guide-img small">
                 </a>
             </div>
+
+            <div class="guide-section">
+                <h2><i class="fas fa-users"></i> Trouver une alliance</h2>
+                <p>Rejoindre une alliance est primordial pour avancer dans le jeu. Le raid étant le mode de jeu donnant le plus de récompenses, je vous donne le lien du mercato — un serveur Discord qui met en relation recruteurs et joueurs en recherche d'alliance, pour tous les niveaux.</p>
+                <a href="https://discord.gg/VmYXqxD" target="_blank" class="img-link">
+                    <img src="images/Mercato.PNG" alt="Mercato Discord" class="guide-img small">
+                </a>
+            </div>
+
+            <div class="guide-section">
+                <h2><i class="fas fa-id-card"></i> Créer un compte msf.gg</h2>
+                <p>Msf.gg permet de gérer son roster facilement. Certaines alliances l'utilisent mais le plus important sont les cadeaux gratuits et les avancées dans les phases. Créer un compte et le lier à son compte en jeu est très important.</p>
+                <p>Il y a 4 codes permanents à entrer dans "Cadeau de joueur" :</p>
+                <img src="images/codes.PNG" alt="Codes msf.gg" class="guide-img">
+                <p class="text-center"><strong>ZOMBIE</strong> — <strong>FOUR</strong> — <strong>GHOSTRIDER</strong> — <strong>SPIDERMAN</strong></p>
+                <p class="text-center text-muted">Attendez deux minutes entre chaque code.</p>
+                <a href="https://api.marvelstrikeforce.com/auth/login?login_challenge=5a5770d5718a46a8a0f49970e3d579b1" target="_blank" class="img-link">
+                    <img src="images/msfgg.png" alt="msf.gg" class="guide-img">
+                </a>
+            </div>
+
+            <div class="guide-section">
+                <h2><i class="fas fa-gem"></i> Utiliser ses ressources</h2>
+                <p>Les noyaux sont une ressource rare. Le meilleur moyen de les dépenser n'est pas d'ouvrir des orbes, mais d'acheter les recharges d'énergie jusqu'à 100 noyaux (4 recharges à 50 noyaux = 200 noyaux/jour). Pour l'or, consommez environ 1M par jour pour garder une réserve.</p>
+                <img src="images/cores.jpg" alt="Noyaux" class="guide-img">
+            </div>
+
+            <div class="guide-section">
+                <h2><i class="fas fa-coins"></i> Dépenser ses crédits</h2>
+                <p>Les crédits sont répartis en deux boutiques :</p>
+                <ul>
+                    <li><strong>Boutique de saison</strong> — priorité à l'équipement palier 20, puis aux éclats de personnages dont vous avez besoin.</li>
+                    <li><strong>Boutique globale</strong> — concentrez-vous sur les personnages méta utiles à votre progression.</li>
+                </ul>
+                <img src="images/credits.PNG" alt="Crédits" class="guide-img">
+            </div>
+
+            <div class="guide-section">
+                <h2><i class="fas fa-star"></i> Crédits de promotion</h2>
+                <p>Les étoiles rouges se posent au-dessus des étoiles jaunes. Si vous avez 7 étoiles rouges mais seulement 5 étoiles jaunes, 2 étoiles rouges sont inutiles jusqu'à ce que le personnage atteigne 7 étoiles jaunes.</p>
+                <p><strong>Ne montez pas les étoiles rouges au-delà de vos étoiles jaunes.</strong> Gardez vos crédits noirs pour les personnages méta.</p>
+                <img src="images/Promo noirs.PNG" alt="Promotions noires" class="guide-img">
+            </div>
+
+            <div class="guide-section">
+                <h2><i class="fas fa-circle"></i> Les orbes étoiles rouges</h2>
+                <p>Il y a 2 types d'orbes étoiles rouges :</p>
+                <ul>
+                    <li><strong>x10 crédits de promotions noires</strong> — ouvrez-les en priorité.</li>
+                    <li><strong>Personnage en vedette + x1 crédit noir</strong> — évitez d'ouvrir sans vedette intéressante.</li>
+                </ul>
+                <img src="images/orbes_rs.PNG" alt="Orbes étoiles rouges" class="guide-img">
+                <p>Pour les orbes élites, ouvrez-les <strong>uniquement</strong> quand un personnage vous intéresse est en vedette. Ne les ouvrez jamais sans vedette.</p>
+                <img src="images/orbes_elite.PNG" alt="Orbes élites" class="guide-img">
+            </div>
+
+            <div class="guide-section">
+                <h2><i class="fas fa-th-large"></i> L'importance du positionnement</h2>
+                <img src="images/placement.PNG" alt="Placement" class="guide-img">
+            </div>
+
+            <div class="guide-section">
+                <h2><i class="fas fa-shield-alt"></i> Focus le raid</h2>
+                <p>Le raid est le mode de jeu le plus rentable, quel que soit votre niveau. Concentrez-vous sur les équipes de raid avant de monter d'autres équipes.</p>
+                <img src="images/raid.png" alt="Raid" class="guide-img medium">
+            </div>
+
         </div>
-        <div class="team">
-            <h3>Conseil galactique</h3>
-            <div class="characters">
-                <div class="character bg-vert"><img src="portrait/Portrait_Quasar.png" alt="Character 1"></div>
-                <div class="character bg-vert"><img src="portrait/Portrait_Blastaar.png" alt="Character 2"></div>
-                <div class="character bg-vert"><img src="portrait/Portrait_Thunderstrike.png" alt="Character 3"></div>
-                <div class="character bg-vert"><img src="portrait/Portrait_StarLord.png" alt="Character 4"></div>
-                <div class="character bg-vert"><img src="portrait/Portrait_AdamWarlock.png" alt="Character 5"></div>
+
+        <!-- ===== GUIDE FARM ===== -->
+        <h1 class="page-title" id="guide-farm">Guide farm</h1>
+
+        <!-- Légende -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-dot green"></div>
+                <span>À monter au max sans soucis</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot orange"></div>
+                <span>À ne pas mettre au max sauf sous certaines conditions</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot red"></div>
+                <span>À ne pas mettre au-dessus du niveau 100</span>
             </div>
         </div>
-        <div class="team">
-            <h3>Guerrier Audacieux</h3>
-            <div class="characters">
-                <div class="character bg-vert"><img src="portrait/Portrait_Eclipse.png" alt="Character 1"></div>
-                <div class="character bg-vert"><img src="portrait/Portrait_NightThrasher.png" alt="Character 2"></div>
-                <div class="character bg-vert"><img src="portrait/Portrait_Speedball.png" alt="Character 3"></div>
-                <div class="character bg-vert"><img src="portrait/Portrait_Daredevil.png" alt="Character 4"></div>
-                <div class="character bg-vert"><img src="portrait/Portrait_JessicaJones.png " alt="Character 5"></div>
+
+        <!-- Teams farm -->
+        <div class="farm-grid">
+
+            <div class="farm-team">
+                <h3>4 Fantastiques</h3>
+                <div class="farm-characters">
+                    <div class="farm-char green"><img src="portrait/Portrait_MrFantasticMCU.png" alt="Mr Fantastic MCU"></div>
+                    <div class="farm-char green"><img src="portrait/Portrait_InvisibleWomanMCU.png" alt="Invisible Woman MCU"></div>
+                    <div class="farm-char green"><img src="portrait/Portrait_FranklinRichards.png" alt="Franklin Richards"></div>
+                    <div class="farm-char orange"><img src="portrait/Portrait_HumanTorch.png" alt="Human Torch"></div>
+                    <div class="farm-char orange"><img src="portrait/Portrait_InvisibleWoman.png" alt="Invisible Woman"></div>
+                </div>
+                <h4 class="sub-label">Remplacements</h4>
+                <div class="farm-characters">
+                    <div class="farm-char neutral"><img src="portrait/Portrait_MysteryMan.png" alt=""></div>
+                    <div class="farm-char neutral"><img src="portrait/Portrait_MysteryMan.png" alt=""></div>
+                    <div class="farm-char neutral"><img src="portrait/Portrait_MysteryMan.png" alt=""></div>
+                    <div class="farm-char neutral"><img src="portrait/Portrait_MysteryMan.png" alt=""></div>
+                    <div class="farm-char red"><img src="portrait/Portrait_Thing.png" alt="The Thing"></div>
+                </div>
             </div>
+
+            <div class="farm-team">
+                <h3>Justiciers <span class="team-tag">Raid</span></h3>
+                <div class="farm-characters">
+                    <div class="farm-char green"><img src="portrait/Portrait_DaredevilModern.png" alt="Daredevil"></div>
+                    <div class="farm-char green"><img src="portrait/Portrait_SilverSable.png" alt="Silver Sable"></div>
+                    <div class="farm-char green"><img src="portrait/Portrait_HitMonkey.png" alt="Hit-Monkey"></div>
+                    <div class="farm-char orange"><img src="portrait/Portrait_Punisher.png" alt="Punisher"></div>
+                    <div class="farm-char red"><img src="portrait/Portrait_Elektra.png" alt="Elektra"></div>
+                </div>
+            </div>
+
+            <div class="farm-team">
+                <h3>Uncanny Avengers <span class="team-tag">Raid · Présentation</span></h3>
+                <div class="farm-characters">
+                    <div class="farm-char orange"><img src="portrait/Portrait_JeanGrey.png" alt="Jean Grey"></div>
+                    <div class="farm-char orange"><img src="portrait/Portrait_Beast.png" alt="Beast"></div>
+                    <div class="farm-char orange"><img src="portrait/Portrait_Storm.png" alt="Storm"></div>
+                    <div class="farm-char orange"><img src="portrait/Portrait_Falcon.png" alt="Falcon"></div>
+                    <div class="farm-char orange"><img src="portrait/Portrait_Hercules.png" alt="Hercules"></div>
+                </div>
+            </div>
+
+            <div class="farm-team">
+                <h3>Club des damnés <span class="team-tag">Raid</span></h3>
+                <div class="farm-characters">
+                    <div class="farm-char green"><img src="portrait/Portrait_SebastianShaw.png" alt="Sebastian Shaw"></div>
+                    <div class="farm-char green"><img src="portrait/Portrait_Azazel.png" alt="Azazel"></div>
+                    <div class="farm-char green"><img src="portrait/Portrait_RachelSummers.png" alt="Rachel Summers"></div>
+                    <div class="farm-char green"><img src="portrait/Portrait_EmmaFrost.png" alt="Emma Frost"></div>
+                    <div class="farm-char red"><img src="portrait/Portrait_MadelynePryor.png" alt="Madelyne Pryor"></div>
+                </div>
+            </div>
+
+            <div class="farm-team">
+                <h3>Champions <span class="team-tag">Raid · Présentation</span></h3>
+                <div class="farm-characters">
+                    <div class="farm-char orange"><img src="portrait/Portrait_NovaSamAlexander.png" alt="Nova"></div>
+                    <div class="farm-char orange"><img src="portrait/Portrait_MoonGirl.png" alt="Moon Girl"></div>
+                    <div class="farm-char red"><img src="portrait/Portrait_UltSpiderMan.png" alt="Ultimate Spider-Man"></div>
+                    <div class="farm-char red"><img src="portrait/Portrait_AmadeusCho.png" alt="Amadeus Cho"></div>
+                    <div class="farm-char red"><img src="portrait/Portrait_MsMarvel.png" alt="Ms. Marvel"></div>
+                </div>
+            </div>
+
+            <div class="farm-team">
+                <h3>Insidieux Six / Vautour / Shocker <span class="team-tag">Raid</span></h3>
+                <div class="farm-characters">
+                    <div class="farm-char green"><img src="portrait/Portrait_Scorpion.png" alt="Scorpion"></div>
+                    <div class="farm-char green"><img src="portrait/Portrait_SuperiorSpiderMan.png" alt="Superior Spider-Man"></div>
+                    <div class="farm-char green"><img src="portrait/Portrait_Hobgoblin.png" alt="Hobgoblin"></div>
+                    <div class="farm-char green"><img src="portrait/Portrait_Vulture.png" alt="Vautour"></div>
+                    <div class="farm-char orange"><img src="portrait/Portrait_Shocker.png" alt="Shocker"></div>
+                </div>
+            </div>
+
+            <div class="farm-team">
+                <h3>Armes Immortelles <span class="team-tag">Raid</span></h3>
+                <div class="farm-characters">
+                    <div class="farm-char green"><img src="portrait/Portrait_LadyBullseye.png" alt="Lady Bullseye"></div>
+                    <div class="farm-char green"><img src="portrait/Portrait_SwordMaster.png" alt="Sword Master"></div>
+                    <div class="farm-char green"><img src="portrait/Portrait_SteelSerpent.png" alt="Steel Serpent"></div>
+                    <div class="farm-char orange"><img src="portrait/Portrait_IronFist.png" alt="Iron Fist"></div>
+                    <div class="farm-char red"><img src="portrait/Portrait_IronFistOrson.png" alt="Iron Fist Orson"></div>
+                </div>
+            </div>
+
+            <div class="farm-team farm-team--link">
+                <h3>Déblocage d'Apocalypse</h3>
+                <a href="era_apocalypse.html" class="farm-link-btn">
+                    <i class="fas fa-external-link-alt"></i> Guide pour débloquer Apocalypse
+                </a>
+            </div>
+
+            <div class="farm-team">
+                <h3>Conseil galactique</h3>
+                <div class="farm-characters">
+                    <div class="farm-char green"><img src="portrait/Portrait_Quasar.png" alt="Quasar"></div>
+                    <div class="farm-char green"><img src="portrait/Portrait_Blastaar.png" alt="Blastaar"></div>
+                    <div class="farm-char green"><img src="portrait/Portrait_Thunderstrike.png" alt="Thunderstrike"></div>
+                    <div class="farm-char green"><img src="portrait/Portrait_StarLord.png" alt="Star-Lord"></div>
+                    <div class="farm-char green"><img src="portrait/Portrait_AdamWarlock.png" alt="Adam Warlock"></div>
+                </div>
+            </div>
+
+            <div class="farm-team">
+                <h3>Guerrier Audacieux</h3>
+                <div class="farm-characters">
+                    <div class="farm-char green"><img src="portrait/Portrait_Eclipse.png" alt="Eclipse"></div>
+                    <div class="farm-char green"><img src="portrait/Portrait_NightThrasher.png" alt="Night Thrasher"></div>
+                    <div class="farm-char green"><img src="portrait/Portrait_Speedball.png" alt="Speedball"></div>
+                    <div class="farm-char green"><img src="portrait/Portrait_Daredevil.png" alt="Daredevil"></div>
+                    <div class="farm-char green"><img src="portrait/Portrait_JessicaJones.png" alt="Jessica Jones"></div>
+                </div>
+            </div>
+
         </div>
     </div>
+
     <div id="footer-container"></div>
 </body>
 </html>
