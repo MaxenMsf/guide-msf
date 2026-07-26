@@ -197,6 +197,24 @@ body {
     box-sizing: border-box;
 }
 
+.chapter-portraits .character {
+    flex: 0 0 auto;
+    width: 105px;
+    height: 130px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.chapter-portraits .character img {
+    width: 90px;
+    height: 112px;
+    object-fit: cover;
+    display: block;
+}
+
 .chapter-portraits .portrait-card {
     flex: 0 0 auto;
     width: 105px;
@@ -242,6 +260,16 @@ body {
     .chapter-portraits {
         flex-wrap: wrap;
         gap: 8px;
+    }
+
+    .chapter-portraits .character {
+        width: 90px;
+        height: 112px;
+    }
+
+    .chapter-portraits .character img {
+        width: 74px;
+        height: 92px;
     }
 
     .chapter-portraits .portrait-card img {
